@@ -1,6 +1,6 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36" version="26.0.16">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Modelo">
-    <mxGraphModel dx="2440" dy="2461" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1430" dy="1926" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-0" />
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-1" parent="WIyWlLk6GJQsqaUBKTNV-0" />
@@ -506,6 +506,12 @@
           <mxGeometry width="160" relative="1" as="geometry">
             <mxPoint x="1386" y="222" as="sourcePoint" />
             <mxPoint x="1610" y="18" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="xdVRWR4K_y8yQyxVj0XE-194" value="" style="endArrow=diamondThin;endFill=1;endSize=24;html=1;rounded=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="xdVRWR4K_y8yQyxVj0XE-30" target="xdVRWR4K_y8yQyxVj0XE-126">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="1650" y="314" as="sourcePoint" />
+            <mxPoint x="1540" y="459" as="targetPoint" />
           </mxGeometry>
         </mxCell>
       </root>
