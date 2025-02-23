@@ -36,7 +36,7 @@ La entrada/salida/ajuste de stock estará principalmente enfocado para dispositi
 
 En cada movimiento se guardará registro de quién, y a qué hora se hizo. El usuario podrá colocar una observación.
 
-####¿QUÉ PROBLEMAS SOLUCIONARÍA? ¿CUÁNTO TIEMPO GANAMOS CON ESTO?
+#### ¿QUÉ PROBLEMAS SOLUCIONARÍA? ¿CUÁNTO TIEMPO GANAMOS CON ESTO?
 
 * **Datos actualizados en la oficina:** Frecuentemente el almacén recibe llamadas desde la oficina para preguntar si hay stock de un producto porque un cliente quería llevarse. Muchas veces tienen que dejar lo que están haciendo, ir al stock de producto terminado rápido, verificarlo y llamar. (Incluso cuando están desbordados). Con esto se ganaría tiempo en el almacén, en la oficina y se conseguiría una respuesta instantánea al cliente.
 
@@ -58,7 +58,7 @@ Como el proyecto está enfocado principalmente para el Producto Terminado, facil
 
 El objetivo sería conseguir que hacer cambios en BarTender solo sea necesario cuando la etiqueta requiera una plantilla diferente.
 
-####¿QUÉ CONSEGUIMOS CON ESTO?
+#### ¿QUÉ CONSEGUIMOS CON ESTO?
 
 * **Nuevas etiquetas:** Crear nuevas etiquetas sería super rápido, ya que obtendría todos los datos de la base de datos, y no hay que estar colocando a mano cada campo en cada etiqueta.
 
