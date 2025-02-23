@@ -19,8 +19,8 @@ CREATE TABLE `Usuario_Group` (
     `usuario` CHAR(9) NOT NULL,
     `grupo` VARCHAR(20) NOT NULL,
     PRIMARY KEY (`usuario`, `grupo`),
-    FOREIGN KEY (`usuario`) REFERENCES `usuario`(`dni`),
-    FOREIGN KEY (`grupo`) REFERENCES `grupo`(`nombre`)
+    FOREIGN KEY (`usuario`) REFERENCES `usuario`(`dni`) ON DELETE CASCADE,
+    FOREIGN KEY (`grupo`) REFERENCES `grupo`(`nombre`) ON DELETE CASCADE
 );
 
 CREATE TABLE `Permiso` (
@@ -32,8 +32,8 @@ CREATE TABLE `Permiso_Grupo` (
     `permiso` VARCHAR(20) NOT NULL,
     `grupo` VARCHAR(20) NOT NULL,
     PRIMARY KEY (`permiso`, `grupo`),
-    FOREIGN KEY (`permiso`) REFERENCES `permiso`(`nombre`),
-    FOREIGN KEY (`grupo`) REFERENCES `grupo`(`nombre`)
+    FOREIGN KEY (`permiso`) REFERENCES `permiso`(`nombre`) ON DELETE CASCADE,
+    FOREIGN KEY (`grupo`) REFERENCES `grupo`(`nombre`) ON DELETE CASCADE
 );
 
 CREATE TABLE `Forma` (
@@ -45,7 +45,7 @@ CREATE TABLE `Forma` (
     `activo` BOOLEAN,
     `responsable` CHAR(9),
     PRIMARY KEY (`id`, `version`),
-    FOREIGN KEY (`responsable`) REFERENCES `usuario`(`dni`)
+    FOREIGN KEY (`responsable`) REFERENCES `usuario`(`dni`) ON DELETE SET NULL
 );
 
 CREATE TABLE `Marca` (
@@ -58,7 +58,7 @@ CREATE TABLE `Marca` (
     `activo` BOOLEAN,
     `responsable` CHAR(9),
     PRIMARY KEY (`id`, `version`),
-    FOREIGN KEY (`responsable`) REFERENCES `usuario`(`dni`)
+    FOREIGN KEY (`responsable`) REFERENCES `usuario`(`dni`) ON DELETE SET NULL
 );
 
 CREATE TABLE `Articulo` (
@@ -70,7 +70,7 @@ CREATE TABLE `Articulo` (
     `descripcionMain` varchar(80) NOT NULL,
     `peso` FLOAT,
     `unidadesPorArticulo` INT,
-    `ean13` CHAR(13),
+    `ean13` CHAR(13) UNIQUE,
     `lineaProduccion` INT,
     `version` INT,
     `fechaCreacion` TIMESTAMP,
@@ -78,9 +78,9 @@ CREATE TABLE `Articulo` (
     `activo` BOOLEAN,
     `responsable` CHAR(9),
     PRIMARY KEY (`referencia`, `version`),
-    FOREIGN KEY (`marca`, `versionMarca`) REFERENCES `marca`(`id`, `version`),
-    FOREIGN KEY (`forma`, `versionForma`) REFERENCES `forma`(`id`, `version`),
-    FOREIGN KEY (`responsable`) REFERENCES `usuario`(`dni`)
+    FOREIGN KEY (`marca`, `versionMarca`) REFERENCES `marca`(`id`, `version`) ON DELETE CASCADE,
+    FOREIGN KEY (`forma`, `versionForma`) REFERENCES `forma`(`id`, `version`) ON DELETE CASCADE,
+    FOREIGN KEY (`responsable`) REFERENCES `usuario`(`dni`) ON DELETE SET NULL
 );
 
 CREATE TABLE `Caja` (
@@ -94,20 +94,20 @@ CREATE TABLE `Caja` (
 
 CREATE TABLE `Producto` (
     `referencia` VARCHAR(16) NOT NULL,
-    `caja` VARCHAR(16) NOT NULL,
+    `caja` VARCHAR(16),
     `articulo` VARCHAR(16) NOT NULL,
     `versionArticulo` INT,
     `articuloPorCaja` INT,
-    `ean14` CHAR(14),
+    `ean14` CHAR(14) UNIQUE,
     `version` INT,
     `fechaCreacion` TIMESTAMP,
     `fechaFin` TIMESTAMP,
     `activo` BOOLEAN,
     `responsable` CHAR(9),
     PRIMARY KEY (`referencia`, `version`),
-    FOREIGN KEY (`caja`) REFERENCES `caja`(`env`),
-    FOREIGN KEY (`articulo`, `versionArticulo`) REFERENCES `articulo`(`referencia`, `version`),
-    FOREIGN KEY (`responsable`) REFERENCES `usuario`(`dni`)
+    FOREIGN KEY (`caja`) REFERENCES `caja`(`env`) ON DELETE SET NULL,
+    FOREIGN KEY (`articulo`, `versionArticulo`) REFERENCES `articulo`(`referencia`, `version`) ON DELETE CASCADE,
+    FOREIGN KEY (`responsable`) REFERENCES `usuario`(`dni`) ON DELETE SET NULL
 );
 
 CREATE TABLE `Impresion_Paquete` (
@@ -120,11 +120,11 @@ CREATE TABLE `Stock_Producto` (
     `producto` VARCHAR(16) NOT NULL,
     `versionProducto` INT,
     `lote` CHAR(5) NOT NULL,
-    `impresionPaquete` VARCHAR(12),
+    `impresionPaquete` VARCHAR(12) NOT NULL,
     `unidades` INT,
-    PRIMARY KEY (`producto`, `versionProducto`, `lote`),
-    FOREIGN KEY (`producto`, `versionProducto`) REFERENCES `producto`(`referencia`, `version`),
-    FOREIGN KEY (`impresionPaquete`) REFERENCES `Impresion_Paquete`(`abreviatura`)
+    PRIMARY KEY (`producto`, `versionProducto`, `lote`, `impresionPaquete`),
+    FOREIGN KEY (`producto`, `versionProducto`) REFERENCES `producto`(`referencia`, `version`) ON DELETE CASCADE,
+    FOREIGN KEY (`impresionPaquete`) REFERENCES `Impresion_Paquete`(`abreviatura`) ON DELETE CASCADE
 );
 
 CREATE TABLE `Movimiento_Stock` (
@@ -136,8 +136,8 @@ CREATE TABLE `Movimiento_Stock` (
     `fechaYHora` TIMESTAMP,
     `observaciones` VARCHAR(255),
     PRIMARY KEY (`numero`, `producto`, `versionProducto`, `lote`),
-    FOREIGN KEY (`producto`, `versionProducto`, `lote`) REFERENCES `Stock_Producto`(`producto`, `versionProducto`, `lote`),
-    FOREIGN KEY (`responsable`) REFERENCES `usuario`(`dni`)
+    FOREIGN KEY (`producto`, `versionProducto`, `lote`) REFERENCES `Stock_Producto`(`producto`, `versionProducto`, `lote`) ON DELETE CASCADE,
+    FOREIGN KEY (`responsable`) REFERENCES `usuario`(`dni`) ON DELETE SET NULL
 );
 
 CREATE TABLE `Entrada_Stock` (
@@ -147,7 +147,7 @@ CREATE TABLE `Entrada_Stock` (
     `lote` CHAR(5) NOT NULL,
     `unidades` INT,
     PRIMARY KEY (`numero`, `producto`, `versionProducto`, `lote`),
-    FOREIGN KEY (`numero`, `producto`, `versionProducto`, `lote`) REFERENCES `Movimiento_Stock`(`numero`, `producto`, `versionProducto`, `lote`)
+    FOREIGN KEY (`numero`, `producto`, `versionProducto`, `lote`) REFERENCES `Movimiento_Stock`(`numero`, `producto`, `versionProducto`, `lote`) ON DELETE CASCADE
 );
 
 CREATE TABLE `Salida_Stock` (
@@ -158,7 +158,7 @@ CREATE TABLE `Salida_Stock` (
     `unidades` INT,
     `destino` VARCHAR(80),
     PRIMARY KEY (`numero`, `producto`, `versionProducto`, `lote`),
-    FOREIGN KEY (`numero`, `producto`, `versionProducto`, `lote`) REFERENCES `Movimiento_Stock`(`numero`, `producto`, `versionProducto`, `lote`)
+    FOREIGN KEY (`numero`, `producto`, `versionProducto`, `lote`) REFERENCES `Movimiento_Stock`(`numero`, `producto`, `versionProducto`, `lote`) ON DELETE CASCADE
 );
 
 CREATE TABLE `Ajuste_Stock` (
@@ -168,7 +168,7 @@ CREATE TABLE `Ajuste_Stock` (
     `lote` CHAR(5) NOT NULL,
     `unidades` INT,
     PRIMARY KEY (`numero`, `producto`, `versionProducto`, `lote`),
-    FOREIGN KEY (`numero`, `producto`, `versionProducto`, `lote`) REFERENCES `Movimiento_Stock`(`numero`, `producto`, `versionProducto`, `lote`)
+    FOREIGN KEY (`numero`, `producto`, `versionProducto`, `lote`) REFERENCES `Movimiento_Stock`(`numero`, `producto`, `versionProducto`, `lote`) ON DELETE CASCADE
 );
 
 CREATE TABLE `Reserva_Stock` (
@@ -179,7 +179,7 @@ CREATE TABLE `Reserva_Stock` (
     `unidades` INT,
     `destino` VARCHAR(80),
     PRIMARY KEY (`numero`, `producto`, `versionProducto`, `lote`),
-    FOREIGN KEY (`numero`, `producto`, `versionProducto`, `lote`) REFERENCES `Movimiento_Stock`(`numero`, `producto`, `versionProducto`, `lote`)
+    FOREIGN KEY (`numero`, `producto`, `versionProducto`, `lote`) REFERENCES `Movimiento_Stock`(`numero`, `producto`, `versionProducto`, `lote`) ON DELETE CASCADE
 );
 
 CREATE TABLE `Descripcion_Articulo` (
@@ -190,8 +190,8 @@ CREATE TABLE `Descripcion_Articulo` (
     `fechaCreacion` TIMESTAMP,
     `responsable` CHAR(9),
     PRIMARY KEY (`id`),
-    FOREIGN KEY (`articulo`, `versionArticulo`) REFERENCES `articulo`(`referencia`, `version`),
-    FOREIGN KEY (`responsable`) REFERENCES `usuario`(`dni`)
+    FOREIGN KEY (`articulo`, `versionArticulo`) REFERENCES `articulo`(`referencia`, `version`) ON DELETE CASCADE,
+    FOREIGN KEY (`responsable`) REFERENCES `usuario`(`dni`) ON DELETE SET NULL
 );
 
 CREATE TABLE `Idioma` (
@@ -206,7 +206,7 @@ CREATE TABLE `Idioma` (
     `activo` BOOLEAN,
     `responsable` CHAR(9),
     PRIMARY KEY (`id`, `version`),
-    FOREIGN KEY (`responsable`) REFERENCES `usuario`(`dni`)
+    FOREIGN KEY (`responsable`) REFERENCES `usuario`(`dni`) ON DELETE SET NULL
 );
 
 CREATE TABLE `Auxiliar_Idioma` (
@@ -216,8 +216,8 @@ CREATE TABLE `Auxiliar_Idioma` (
     `fechaCreacion` TIMESTAMP,
     `responsable` CHAR(9),
     PRIMARY KEY (`idioma`, `versionIdioma`, `datoAuxiliar`),
-    FOREIGN KEY (`idioma`, `versionIdioma`) REFERENCES `idioma`(`id`, `version`),
-    FOREIGN KEY (`responsable`) REFERENCES `usuario`(`dni`)
+    FOREIGN KEY (`idioma`, `versionIdioma`) REFERENCES `idioma`(`id`, `version`) ON DELETE CASCADE,
+    FOREIGN KEY (`responsable`) REFERENCES `usuario`(`dni`) ON DELETE SET NULL
 );
 
 CREATE TABLE `Variante_Idioma` (
@@ -227,8 +227,8 @@ CREATE TABLE `Variante_Idioma` (
     `fechaCreacion` TIMESTAMP,
     `responsable` CHAR(9),
     PRIMARY KEY (`variante`),
-    FOREIGN KEY (`idioma`, `versionIdioma`) REFERENCES `idioma`(`id`, `version`),
-    FOREIGN KEY (`responsable`) REFERENCES `usuario`(`dni`)
+    FOREIGN KEY (`idioma`, `versionIdioma`) REFERENCES `idioma`(`id`, `version`) ON DELETE CASCADE,
+    FOREIGN KEY (`responsable`) REFERENCES `usuario`(`dni`) ON DELETE SET NULL
 );
 
 CREATE TABLE `Auxiliar_Variante` (
@@ -237,8 +237,8 @@ CREATE TABLE `Auxiliar_Variante` (
     `fechaCreacion` TIMESTAMP,
     `responsable` CHAR(9),
     PRIMARY KEY (`variante`, `datoAuxiliar`),
-    FOREIGN KEY (`variante`) REFERENCES `Variante_Idioma`(`variante`),
-    FOREIGN KEY (`responsable`) REFERENCES `usuario`(`dni`)
+    FOREIGN KEY (`variante`) REFERENCES `Variante_Idioma`(`variante`) ON DELETE CASCADE,
+    FOREIGN KEY (`responsable`) REFERENCES `usuario`(`dni`) ON DELETE SET NULL
 );
 
 CREATE TABLE `Cambio_En_Variante` (
@@ -248,7 +248,7 @@ CREATE TABLE `Cambio_En_Variante` (
     `fechaCreacion` TIMESTAMP,
     `responsable` CHAR(9),
     PRIMARY KEY (`cambio`),
-    FOREIGN KEY (`responsable`) REFERENCES `usuario`(`dni`)
+    FOREIGN KEY (`responsable`) REFERENCES `usuario`(`dni`) ON DELETE SET NULL
 );
 
 CREATE TABLE `Cambios_Variante` (
@@ -257,6 +257,7 @@ CREATE TABLE `Cambios_Variante` (
     `fechaAnadido` TIMESTAMP,
     `responsable` CHAR(9),
     PRIMARY KEY (`cambio`, `variante`),
-    FOREIGN KEY (`variante`) REFERENCES `Variante_Idioma`(`variante`),
-    FOREIGN KEY (`responsable`) REFERENCES `usuario`(`dni`)
+    FOREIGN KEY (`variante`) REFERENCES `Variante_Idioma`(`variante`) ON DELETE CASCADE,
+    FOREIGN KEY (`cambio`) REFERENCES `Cambio_En_Variante`(`cambio`) ON DELETE CASCADE,
+    FOREIGN KEY (`responsable`) REFERENCES `usuario`(`dni`) ON DELETE SET NULL
 );
