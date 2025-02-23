@@ -93,4 +93,4 @@ Con esto conseguimos que no falsifiquen el responsable de los movimientos, un ac
 
 En caso de error, también se permitirá el inicio de sesión con usuario y contraseña
 
-![NFC interactuando con el movil](https://www.etiquetas-nfc.es/wp-content/uploads/pulsera-nfc-silicona-negra-_2_.webp "NFC interactuando con el movil")
+![NFC interactuando con el movil](https://cdn.discordapp.com/attachments/1184903737928589322/1343045219473424395/pulsera-nfc-silicona-negra-_2_.png?ex=67bbd7d4&is=67ba8654&hm=f8170de4ec2b508429cac588c66df20b6510e993aab3b6edf6e54db6ac50181b& "NFC interactuando con el movil")
