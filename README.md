@@ -72,7 +72,7 @@ El objetivo sería conseguir que hacer cambios en BarTender solo sea necesario c
 
 ### SISTEMA DE ROLLBACK
 
-Muchas veces los productos, marcas, etiquetas, etc… tienen cambios. Pero hasta que no gastamos el material previo a los cambios, tenemos que hacer etiquetas con la versión anterior a la nueva. Pero nos interesa estar preparados para cuando se vaya a realizar el cambio, tener las etiquetas creadas y todo actualizado.
+Muchas veces los productos, marcas, etiquetas, etc… tienen cambios. Pero hasta que no se gasta el material previo a los cambios, hay que hacer etiquetas con la versión anterior a la nueva. Pero interesa estar preparados para cuando se vaya a realizar el cambio, tener las etiquetas creadas y todo actualizado.
 
 Esto es un problema, ya que, al hacer una actualización en la base de datos, las etiquetas que acceden a ella cambiarían sus datos automáticamente y no nos permitiría continuar con la producción del producto antes de los cambios.
 
