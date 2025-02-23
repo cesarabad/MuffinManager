@@ -200,6 +200,7 @@ CREATE TABLE `Idioma` (
     `caducidadTexto` VARCHAR(50) NOT NULL,
     `mensaje` TEXT NOT NULL,
     `unidadesTexto` VARCHAR(50) NOT NULL,
+    `plantilla` VARCHAR(20) NOT NULL,
     `version` INT,
     `fechaCreacion` TIMESTAMP,
     `fechaFin` TIMESTAMP,
