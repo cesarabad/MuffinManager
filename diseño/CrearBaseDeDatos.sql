@@ -5,7 +5,7 @@ CREATE TABLE `Usuario` (
     `dni` CHAR(9) NOT NULL,
     `nombre` VARCHAR(80) NOT NULL,
     `apellidos` VARCHAR(80),
-    `nombreUsuario` VARCHAR(20) NOT NULL,
+    `nombreUsuario` VARCHAR(20) NOT NULL UNIQUE,
     `contrasenaHash` VARCHAR(64) NOT NULL,
     PRIMARY KEY (`dni`)
 );

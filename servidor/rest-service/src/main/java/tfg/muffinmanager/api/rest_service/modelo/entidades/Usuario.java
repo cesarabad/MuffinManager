@@ -4,6 +4,7 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import tfg.muffinmanager.api.rest_service.modelo.dto.UsuarioDTO;
 
 @Entity
 @Table(name = "usuario")
@@ -29,6 +30,9 @@ public class Usuario {
         this.apellidos = apellidos;
         this.nombreUsuario = nohmreUsuario;
         this.contrasenaHash = contrasenaHash;
+    }
+    public UsuarioDTO toDTO() {
+        return new UsuarioDTO(this.dni, this.nombre, this.apellidos, this.nombreUsuario);
     }
     public String getDni() {
         return dni;

@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import tfg.muffinmanager.api.rest_service.modelo.dto.UsuarioContrasenaDTO;
 import tfg.muffinmanager.api.rest_service.modelo.dto.UsuarioDTO;
 import tfg.muffinmanager.api.rest_service.modelo.entidades.Usuario;
 import tfg.muffinmanager.api.rest_service.repositorios.UsuarioRepositorio;
@@ -21,8 +20,38 @@ public class UsuarioServicio {
         return usuarios;
     }
 
-    public UsuarioDTO guardarUsuario(UsuarioDTO usuario, String contrasena) {
-        usuarioRepositorio.save(new Usuario(usuario.getDni(), usuario.getNombre(), usuario.getApellidos(), usuario.getNombreUsuario(), contrasena));
-        return usuario;
+    public UsuarioDTO guardarUsuario(Usuario usuario) {
+
+        if (existeUsuario(usuario.getDni())) {
+            return null;
+        }
+        usuarioRepositorio.save(usuario);
+        return usuario.toDTO();
+    }
+
+    public UsuarioDTO actualizarUsuario(Usuario usuario) {
+        if (!existeUsuario(usuario.getDni())) {
+            return null;
+        }
+        usuarioRepositorio.save(usuario);
+        return usuario.toDTO();
+    }
+
+    public UsuarioDTO obtenerPorDni(String dni) {
+        return usuarioRepositorio.findByDni(dni).toDTO();
+    }
+
+    public boolean existeUsuario(String dni) {
+        return usuarioRepositorio.findByDni(dni) != null;
+    }
+
+    public boolean eliminarPorDni(String dni) {
+        try {
+            usuarioRepositorio.delete(usuarioRepositorio.findByDni(dni));
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+        
     }
 }

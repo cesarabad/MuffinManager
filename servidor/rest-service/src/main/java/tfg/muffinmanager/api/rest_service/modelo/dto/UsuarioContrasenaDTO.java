@@ -2,55 +2,55 @@ package tfg.muffinmanager.api.rest_service.modelo.dto;
 
 public class UsuarioContrasenaDTO {
 
-    private UsuarioDTO usuario;
+    private UsuarioDTO usuarioDTO;
     private String contrasena;
 
     public UsuarioContrasenaDTO() {
     }
 
     public UsuarioContrasenaDTO(UsuarioDTO usuario, String contrasena) {
-        this.usuario = usuario;
+        this.usuarioDTO = usuario;
         this.contrasena = contrasena;
     }
 
-    public UsuarioDTO getUsuario() {
-        return usuario;
+    public UsuarioDTO getUsuarioDTO() {
+        return usuarioDTO;
     }
 
-    public void setUsuario(UsuarioDTO usuario) {
-        this.usuario = usuario;
+    public void setUsuarioDTO(UsuarioDTO usuario) {
+        this.usuarioDTO = usuario;
     }
 
     public String getDni() {
-        return usuario.getDni();
+        return usuarioDTO.getDni();
     }
 
     public void setDni(String dni) {
-        this.usuario.setDni(dni);
+        this.usuarioDTO.setDni(dni);
     }
 
     public String getNombre() {
-        return usuario.getNombre();
+        return usuarioDTO.getNombre();
     }
 
     public void setNombre(String nombre) {
-        this.usuario.setNombre(nombre);
+        this.usuarioDTO.setNombre(nombre);
     }
 
     public String getApellidos() {
-        return usuario.getApellidos();
+        return usuarioDTO.getApellidos();
     }
 
     public void setApellidos(String apellidos) {
-        this.usuario.setApellidos(apellidos);
+        this.usuarioDTO.setApellidos(apellidos);
     }
 
     public String getNombreUsuario() {
-        return usuario.getNombreUsuario();
+        return usuarioDTO.getNombreUsuario();
     }
 
     public void setNombreUsuario(String nombreUsuario) {
-        this.usuario.setNombreUsuario(nombreUsuario);
+        this.usuarioDTO.setNombreUsuario(nombreUsuario);
     }
 
     public String getContrasena() {
