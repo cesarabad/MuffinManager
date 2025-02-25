@@ -10,12 +10,12 @@ CREATE TABLE `Usuario` (
     PRIMARY KEY (`dni`)
 );
 
-CREATE TABLE `Grupo` (
+CREATE TABLE `Grupo_Permisos` (
     `nombre` VARCHAR(20) NOT NULL,
     PRIMARY KEY (`nombre`)
 );
 
-CREATE TABLE `Usuario_Group` (
+CREATE TABLE `Usuario_Grupo` (
     `usuario` CHAR(9) NOT NULL,
     `grupo` VARCHAR(20) NOT NULL,
     PRIMARY KEY (`usuario`, `grupo`),
@@ -36,46 +36,54 @@ CREATE TABLE `Permiso_Grupo` (
     FOREIGN KEY (`grupo`) REFERENCES `grupo`(`nombre`) ON DELETE CASCADE
 );
 
+CREATE TABLE `Permiso_Usuario` (
+    `permiso` VARCHAR(20) NOT NULL,
+    `usuario` CHAR(9) NOT NULL,
+    PRIMARY KEY (`permiso`, `usuario`),
+    FOREIGN KEY (`permiso`) REFERENCES `permiso`(`nombre`) ON DELETE CASCADE,
+    FOREIGN KEY (`usuario`) REFERENCES `usuario`(`dni`) ON DELETE CASCADE
+);
+
 CREATE TABLE `Forma` (
-    `id` VARCHAR(5) NOT NULL,
+    `id` VARCHAR(10) NOT NULL,
     `descripcion` varchar(80) NOT NULL,
-    `version` INT,
-    `fechaCreacion` TIMESTAMP,
+    `version` INT NOT NULL,
+    `fechaCreacion` TIMESTAMP NOT NULL,
     `fechaFin` TIMESTAMP,
-    `activo` BOOLEAN,
+    `activo` BOOLEAN NOT NULL,
     `responsable` CHAR(9),
     PRIMARY KEY (`id`, `version`),
     FOREIGN KEY (`responsable`) REFERENCES `usuario`(`dni`) ON DELETE SET NULL
 );
 
 CREATE TABLE `Marca` (
-    `id` VARCHAR(5) NOT NULL,
+    `id` VARCHAR(10) NOT NULL,
     `nombre` varchar(80) NOT NULL,
     `logo` BLOB,
-    `version` INT,
-    `fechaCreacion` TIMESTAMP,
+    `version` INT NOT NULL,
+    `fechaCreacion` TIMESTAMP NOT NULL,
     `fechaFin` TIMESTAMP,
-    `activo` BOOLEAN,
+    `activo` BOOLEAN NOT NULL,
     `responsable` CHAR(9),
     PRIMARY KEY (`id`, `version`),
     FOREIGN KEY (`responsable`) REFERENCES `usuario`(`dni`) ON DELETE SET NULL
 );
 
 CREATE TABLE `Articulo` (
-    `referencia` VARCHAR(16) NOT NULL,
-    `marca` varchar(5) NOT NULL,
-    `versionMarca` INT,
-    `forma` varchar(5) NOT NULL,
-    `versionForma` INT,
+    `referencia` VARCHAR(20) NOT NULL,
+    `marca` varchar(10) NOT NULL,
+    `versionMarca` INT NOT NULL,
+    `forma` varchar(10) NOT NULL,
+    `versionForma` INT NOT NULL,
     `descripcionMain` varchar(80) NOT NULL,
     `peso` FLOAT,
     `unidadesPorArticulo` INT,
     `ean13` CHAR(13) UNIQUE,
     `lineaProduccion` INT,
-    `version` INT,
-    `fechaCreacion` TIMESTAMP,
+    `version` INT NOT NULL,
+    `fechaCreacion` TIMESTAMP NOT NULL,
     `fechaFin` TIMESTAMP,
-    `activo` BOOLEAN,
+    `activo` BOOLEAN NOT NULL,
     `responsable` CHAR(9),
     PRIMARY KEY (`referencia`, `version`),
     FOREIGN KEY (`marca`, `versionMarca`) REFERENCES `marca`(`id`, `version`) ON DELETE CASCADE,
@@ -84,7 +92,7 @@ CREATE TABLE `Articulo` (
 );
 
 CREATE TABLE `Caja` (
-    `env` VARCHAR(16) NOT NULL,
+    `env` VARCHAR(20) NOT NULL,
     `descripcion` varchar(80) NOT NULL,
     `baseEuropeo` INT,
     `baseAmericano` INT,
@@ -93,16 +101,16 @@ CREATE TABLE `Caja` (
 );
 
 CREATE TABLE `Producto` (
-    `referencia` VARCHAR(16) NOT NULL,
-    `caja` VARCHAR(16),
-    `articulo` VARCHAR(16) NOT NULL,
-    `versionArticulo` INT,
+    `referencia` VARCHAR(20) NOT NULL,
+    `caja` VARCHAR(20),
+    `articulo` VARCHAR(20) NOT NULL,
+    `versionArticulo` INT NOT NULL,
     `articuloPorCaja` INT,
     `ean14` CHAR(14) UNIQUE,
-    `version` INT,
-    `fechaCreacion` TIMESTAMP,
+    `version` INT NOT NULL,
+    `fechaCreacion` TIMESTAMP NOT NULL,
     `fechaFin` TIMESTAMP,
-    `activo` BOOLEAN,
+    `activo` BOOLEAN NOT NULL,
     `responsable` CHAR(9),
     PRIMARY KEY (`referencia`, `version`),
     FOREIGN KEY (`caja`) REFERENCES `caja`(`env`) ON DELETE SET NULL,
@@ -117,11 +125,11 @@ CREATE TABLE `Impresion_Paquete` (
 );
 
 CREATE TABLE `Stock_Producto` (
-    `producto` VARCHAR(16) NOT NULL,
-    `versionProducto` INT,
+    `producto` VARCHAR(20) NOT NULL,
+    `versionProducto` INT NOT NULL,
     `lote` CHAR(5) NOT NULL,
     `impresionPaquete` VARCHAR(12) NOT NULL,
-    `unidades` INT,
+    `unidades` INT NOT NULL,
     PRIMARY KEY (`producto`, `versionProducto`, `lote`, `impresionPaquete`),
     FOREIGN KEY (`producto`, `versionProducto`) REFERENCES `producto`(`referencia`, `version`) ON DELETE CASCADE,
     FOREIGN KEY (`impresionPaquete`) REFERENCES `Impresion_Paquete`(`abreviatura`) ON DELETE CASCADE
@@ -129,11 +137,11 @@ CREATE TABLE `Stock_Producto` (
 
 CREATE TABLE `Movimiento_Stock` (
     `numero` INT AUTO_INCREMENT NOT NULL,
-    `producto` VARCHAR(16) NOT NULL,
-    `versionProducto` INT,
+    `producto` VARCHAR(20) NOT NULL,
+    `versionProducto` INT NOT NULL,
     `lote` CHAR(5) NOT NULL,
     `responsable` CHAR(9),
-    `fechaYHora` TIMESTAMP,
+    `fechaYHora` TIMESTAMP NOT NULL,
     `observaciones` VARCHAR(255),
     PRIMARY KEY (`numero`, `producto`, `versionProducto`, `lote`),
     FOREIGN KEY (`producto`, `versionProducto`, `lote`) REFERENCES `Stock_Producto`(`producto`, `versionProducto`, `lote`) ON DELETE CASCADE,
@@ -142,39 +150,39 @@ CREATE TABLE `Movimiento_Stock` (
 
 CREATE TABLE `Entrada_Stock` (
     `numero` INT NOT NULL,
-    `producto` VARCHAR(16) NOT NULL,
-    `versionProducto` INT,
+    `producto` VARCHAR(20) NOT NULL,
+    `versionProducto` INT NOT NULL,
     `lote` CHAR(5) NOT NULL,
-    `unidades` INT,
+    `unidades` INT NOT NULL,
     PRIMARY KEY (`numero`, `producto`, `versionProducto`, `lote`),
     FOREIGN KEY (`numero`, `producto`, `versionProducto`, `lote`) REFERENCES `Movimiento_Stock`(`numero`, `producto`, `versionProducto`, `lote`) ON DELETE CASCADE
 );
 
 CREATE TABLE `Salida_Stock` (
     `numero` INT NOT NULL,
-    `producto` VARCHAR(16) NOT NULL,
-    `versionProducto` INT,
+    `producto` VARCHAR(20) NOT NULL,
+    `versionProducto` INT NOT NULL,
     `lote` CHAR(5) NOT NULL,
-    `unidades` INT,
-    `destino` VARCHAR(80),
+    `unidades` INT NOT NULL,
+    `destino` VARCHAR(80) NOT NULL,
     PRIMARY KEY (`numero`, `producto`, `versionProducto`, `lote`),
     FOREIGN KEY (`numero`, `producto`, `versionProducto`, `lote`) REFERENCES `Movimiento_Stock`(`numero`, `producto`, `versionProducto`, `lote`) ON DELETE CASCADE
 );
 
 CREATE TABLE `Ajuste_Stock` (
     `numero` INT NOT NULL,
-    `producto` VARCHAR(16) NOT NULL,
-    `versionProducto` INT,
+    `producto` VARCHAR(20) NOT NULL,
+    `versionProducto` INT NOT NULL,
     `lote` CHAR(5) NOT NULL,
-    `unidades` INT,
+    `unidades` INT NOT NULL,
     PRIMARY KEY (`numero`, `producto`, `versionProducto`, `lote`),
     FOREIGN KEY (`numero`, `producto`, `versionProducto`, `lote`) REFERENCES `Movimiento_Stock`(`numero`, `producto`, `versionProducto`, `lote`) ON DELETE CASCADE
 );
 
 CREATE TABLE `Reserva_Stock` (
     `numero` INT NOT NULL,
-    `producto` VARCHAR(16) NOT NULL,
-    `versionProducto` INT,
+    `producto` VARCHAR(20) NOT NULL,
+    `versionProducto` INT NOT NULL,
     `lote` CHAR(5) NOT NULL,
     `unidades` INT,
     `destino` VARCHAR(80),
@@ -184,37 +192,47 @@ CREATE TABLE `Reserva_Stock` (
 
 CREATE TABLE `Descripcion_Articulo` (
     `id` INT AUTO_INCREMENT NOT NULL,
-    `articulo` VARCHAR(16) NOT NULL,
-    `versionArticulo` INT,
+    `articulo` VARCHAR(20) NOT NULL,
+    `versionArticulo` INT NOT NULL,
     `descripcion` VARCHAR(80) NOT NULL,
-    `fechaCreacion` TIMESTAMP,
+    `fechaCreacion` TIMESTAMP NOT NULL,
     `responsable` CHAR(9),
     PRIMARY KEY (`id`),
     FOREIGN KEY (`articulo`, `versionArticulo`) REFERENCES `articulo`(`referencia`, `version`) ON DELETE CASCADE,
     FOREIGN KEY (`responsable`) REFERENCES `usuario`(`dni`) ON DELETE SET NULL
 );
 
+CREATE TABLE Mensaje (
+    `id` INT AUTO_INCREMENT NOT NULL,
+    `texto` TEXT NOT NULL,
+    `fechaCreacion` TIMESTAMP NOT NULL,
+    `responsable` CHAR(9),
+    PRIMARY KEY (`id`),
+    FOREIGN KEY (`responsable`) REFERENCES `usuario`(`dni`) ON DELETE SET NULL
+)
+
 CREATE TABLE `Idioma` (
     `id` VARCHAR(20) NOT NULL,
-    `loteTexto` VARCHAR(50) NOT NULL,
-    `caducidadTexto` VARCHAR(50) NOT NULL,
-    `mensaje` TEXT NOT NULL,
-    `unidadesTexto` VARCHAR(50) NOT NULL,
+    `loteTexto` VARCHAR(50),
+    `caducidadTexto` VARCHAR(50),
+    `mensaje` INT,
+    `unidadesTexto` VARCHAR(50),
     `plantilla` VARCHAR(20) NOT NULL,
-    `version` INT,
-    `fechaCreacion` TIMESTAMP,
+    `version` INT NOT NULL,
+    `fechaCreacion` TIMESTAMP NOT NULL,
     `fechaFin` TIMESTAMP,
-    `activo` BOOLEAN,
+    `activo` BOOLEAN NOT NULL,
     `responsable` CHAR(9),
     PRIMARY KEY (`id`, `version`),
+    FOREIGN KEY (`mensaje`) REFERENCES `mensaje`(`id`) ON DELETE SET NULL,
     FOREIGN KEY (`responsable`) REFERENCES `usuario`(`dni`) ON DELETE SET NULL
 );
 
 CREATE TABLE `Auxiliar_Idioma` (
     `idioma` VARCHAR(20) NOT NULL,
-    `versionIdioma` INT,
+    `versionIdioma` INT NOT NULL,
     `datoAuxiliar` VARCHAR(50) NOT NULL,
-    `fechaCreacion` TIMESTAMP,
+    `fechaCreacion` TIMESTAMP NOT NULL,
     `responsable` CHAR(9),
     PRIMARY KEY (`idioma`, `versionIdioma`, `datoAuxiliar`),
     FOREIGN KEY (`idioma`, `versionIdioma`) REFERENCES `idioma`(`id`, `version`) ON DELETE CASCADE,
@@ -224,8 +242,8 @@ CREATE TABLE `Auxiliar_Idioma` (
 CREATE TABLE `Variante_Idioma` (
     `variante` VARCHAR(20) NOT NULL,
     `idioma` VARCHAR(20) NOT NULL,
-    `versionIdioma` INT,
-    `fechaCreacion` TIMESTAMP,
+    `versionIdioma` INT NOT NULL,
+    `fechaCreacion` TIMESTAMP NOT NULL,
     `responsable` CHAR(9),
     PRIMARY KEY (`variante`),
     FOREIGN KEY (`idioma`, `versionIdioma`) REFERENCES `idioma`(`id`, `version`) ON DELETE CASCADE,
@@ -235,7 +253,7 @@ CREATE TABLE `Variante_Idioma` (
 CREATE TABLE `Auxiliar_Variante` (
     `variante` VARCHAR(20) NOT NULL,
     `datoAuxiliar` VARCHAR(50) NOT NULL,
-    `fechaCreacion` TIMESTAMP,
+    `fechaCreacion` TIMESTAMP NOT NULL,
     `responsable` CHAR(9),
     PRIMARY KEY (`variante`, `datoAuxiliar`),
     FOREIGN KEY (`variante`) REFERENCES `Variante_Idioma`(`variante`) ON DELETE CASCADE,
@@ -246,7 +264,7 @@ CREATE TABLE `Cambio_En_Variante` (
     `cambio` INT AUTO_INCREMENT NOT NULL,
     `nombreCampo` VARCHAR(30) NOT NULL,
     `valorNuevo` VARCHAR(50),
-    `fechaCreacion` TIMESTAMP,
+    `fechaCreacion` TIMESTAMP NOT NULL,
     `responsable` CHAR(9),
     PRIMARY KEY (`cambio`),
     FOREIGN KEY (`responsable`) REFERENCES `usuario`(`dni`) ON DELETE SET NULL
@@ -255,10 +273,25 @@ CREATE TABLE `Cambio_En_Variante` (
 CREATE TABLE `Cambios_Variante` (
     `cambio` INT NOT NULL,
     `variante` VARCHAR(20) NOT NULL,
-    `fechaAnadido` TIMESTAMP,
+    `fechaAnadido` TIMESTAMP NOT NULL,
     `responsable` CHAR(9),
     PRIMARY KEY (`cambio`, `variante`),
     FOREIGN KEY (`variante`) REFERENCES `Variante_Idioma`(`variante`) ON DELETE CASCADE,
     FOREIGN KEY (`cambio`) REFERENCES `Cambio_En_Variante`(`cambio`) ON DELETE CASCADE,
+    FOREIGN KEY (`responsable`) REFERENCES `usuario`(`dni`) ON DELETE SET NULL
+);
+
+CREATE TABLE `Etiqueta` (
+    `codigo` VARCHAR(20) NOT NULL,
+    `varianteIdioma` VARCHAR(20) NOT NULL,
+    `producto` VARCHAR(20) NOT NULL,
+    `versionProducto` INT NOT NULL,
+    `version` INT NOT NULL,
+    `fechaCreacion` TIMESTAMP NOT NULL,
+    `fechaFin` TIMESTAMP,
+    `responsable` CHAR(9),
+    PRIMARY KEY (`codigo`, `version`),
+    FOREIGN KEY (`varianteIdioma`) REFERENCES `Variante_Idioma`(`variante`) ON DELETE CASCADE,
+    FOREIGN KEY (`producto`, `versionProducto`) REFERENCES `producto`(`referencia`, `version`) ON DELETE CASCADE,
     FOREIGN KEY (`responsable`) REFERENCES `usuario`(`dni`) ON DELETE SET NULL
 );
