@@ -6,7 +6,7 @@ CREATE TABLE `Usuario` (
     `nombre` VARCHAR(80) NOT NULL,
     `apellidos` VARCHAR(80),
     `nombreUsuario` VARCHAR(20) NOT NULL,
-    `contrasenaHash` VARCHAR(80) NOT NULL,
+    `contrasenaHash` VARCHAR(64) NOT NULL,
     PRIMARY KEY (`dni`)
 );
 
@@ -20,7 +20,7 @@ CREATE TABLE `Usuario_Grupo` (
     `grupo` VARCHAR(20) NOT NULL,
     PRIMARY KEY (`usuario`, `grupo`),
     FOREIGN KEY (`usuario`) REFERENCES `usuario`(`dni`) ON DELETE CASCADE,
-    FOREIGN KEY (`grupo`) REFERENCES `grupo`(`nombre`) ON DELETE CASCADE
+    FOREIGN KEY (`grupo`) REFERENCES `grupo_permisos`(`nombre`) ON DELETE CASCADE
 );
 
 CREATE TABLE `Permiso` (
@@ -33,7 +33,7 @@ CREATE TABLE `Permiso_Grupo` (
     `grupo` VARCHAR(20) NOT NULL,
     PRIMARY KEY (`permiso`, `grupo`),
     FOREIGN KEY (`permiso`) REFERENCES `permiso`(`nombre`) ON DELETE CASCADE,
-    FOREIGN KEY (`grupo`) REFERENCES `grupo`(`nombre`) ON DELETE CASCADE
+    FOREIGN KEY (`grupo`) REFERENCES `grupo_permisos`(`nombre`) ON DELETE CASCADE
 );
 
 CREATE TABLE `Permiso_Usuario` (
@@ -209,7 +209,7 @@ CREATE TABLE Mensaje (
     `responsable` CHAR(9),
     PRIMARY KEY (`id`),
     FOREIGN KEY (`responsable`) REFERENCES `usuario`(`dni`) ON DELETE SET NULL
-)
+);
 
 CREATE TABLE `Idioma` (
     `id` VARCHAR(20) NOT NULL,
