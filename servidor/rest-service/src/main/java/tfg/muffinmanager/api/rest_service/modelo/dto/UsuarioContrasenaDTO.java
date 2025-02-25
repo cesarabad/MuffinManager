@@ -1,5 +1,10 @@
 package tfg.muffinmanager.api.rest_service.modelo.dto;
 
+import java.util.Set;
+
+import tfg.muffinmanager.api.rest_service.modelo.entidades.GrupoPermisos;
+import tfg.muffinmanager.api.rest_service.modelo.entidades.Permiso;
+
 public class UsuarioContrasenaDTO {
 
     private UsuarioDTO usuarioDTO;
@@ -60,4 +65,21 @@ public class UsuarioContrasenaDTO {
     public void setContrasena(String contrasena) {
         this.contrasena = contrasena;
     }
+
+    public Set<GrupoPermisos> getGruposPermisos() {
+        return this.usuarioDTO.getGruposPermisos();
+    }
+
+    public void setGruposPermisos(Set<GrupoPermisos> gruposPermisos) {
+        this.usuarioDTO.setGruposPermisos(gruposPermisos);
+    }
+
+    public Set<Permiso> getPermisos() {
+        return this.usuarioDTO.getPermisos();
+    }
+
+    public void setPermisos(Set<Permiso> permisos) {
+        this.usuarioDTO.setPermisos(permisos);
+    }
+    
 }

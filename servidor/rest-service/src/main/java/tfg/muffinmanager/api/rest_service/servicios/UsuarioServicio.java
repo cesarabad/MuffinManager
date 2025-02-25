@@ -16,7 +16,7 @@ public class UsuarioServicio {
 
     public ArrayList<UsuarioDTO> obtenerUsuarios() {
         ArrayList<UsuarioDTO> usuarios = new ArrayList<>();
-        usuarioRepositorio.findAll().forEach(usuario -> usuarios.add(new UsuarioDTO(usuario.getDni(), usuario.getNombre(), usuario.getApellidos(), usuario.getNombreUsuario())));
+        usuarioRepositorio.findAll().forEach(usuario -> usuarios.add(new UsuarioDTO(usuario.getDni(), usuario.getNombre(), usuario.getApellidos(), usuario.getNombreUsuario(), usuario.getGruposPermisos(), usuario.getPermisos())));
         return usuarios;
     }
 

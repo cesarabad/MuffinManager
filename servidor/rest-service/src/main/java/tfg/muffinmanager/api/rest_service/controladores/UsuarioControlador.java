@@ -4,11 +4,9 @@ import java.util.ArrayList;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import tfg.muffinmanager.api.rest_service.modelo.dto.UsuarioContrasenaDTO;
 import tfg.muffinmanager.api.rest_service.modelo.dto.UsuarioDTO;
 import tfg.muffinmanager.api.rest_service.modelo.entidades.Usuario;
 import tfg.muffinmanager.api.rest_service.servicios.UsuarioServicio;

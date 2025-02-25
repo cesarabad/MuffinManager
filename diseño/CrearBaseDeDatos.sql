@@ -29,16 +29,16 @@ CREATE TABLE `Permiso` (
 );
 
 CREATE TABLE `Permiso_Grupo` (
-    `permiso` VARCHAR(20) NOT NULL,
     `grupo` VARCHAR(20) NOT NULL,
+    `permiso` VARCHAR(20) NOT NULL,
     PRIMARY KEY (`permiso`, `grupo`),
     FOREIGN KEY (`permiso`) REFERENCES `permiso`(`nombre`) ON DELETE CASCADE,
     FOREIGN KEY (`grupo`) REFERENCES `grupo_permisos`(`nombre`) ON DELETE CASCADE
 );
 
 CREATE TABLE `Permiso_Usuario` (
-    `permiso` VARCHAR(20) NOT NULL,
     `usuario` CHAR(9) NOT NULL,
+    `permiso` VARCHAR(20) NOT NULL,
     PRIMARY KEY (`permiso`, `usuario`),
     FOREIGN KEY (`permiso`) REFERENCES `permiso`(`nombre`) ON DELETE CASCADE,
     FOREIGN KEY (`usuario`) REFERENCES `usuario`(`dni`) ON DELETE CASCADE

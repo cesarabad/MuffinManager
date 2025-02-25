@@ -1,10 +1,14 @@
 package tfg.muffinmanager.api.rest_service.modelo.entidades;
 
+import java.util.Set;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import tfg.muffinmanager.api.rest_service.modelo.dto.UsuarioDTO;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 
 @Entity
 @Table(name = "usuario")
@@ -20,20 +24,35 @@ public class Usuario {
     private String nombreUsuario;
     @Column(name = "contrasenahash",length = 64)
     private String contrasenaHash;
+    @ManyToMany
+    @JoinTable(name = "usuario_grupo",
+            joinColumns = @JoinColumn(name = "usuario"),
+            inverseJoinColumns = @JoinColumn(name = "grupo"))
+    private Set<GrupoPermisos> gruposPermisos;
+    @ManyToMany
+    @JoinTable(name = "permiso_usuario",
+            joinColumns = @JoinColumn(name = "usuario"),
+            inverseJoinColumns = @JoinColumn(name = "permiso"))
+    private Set<Permiso> permisos;
 
     public Usuario() {
     }
 
-    public Usuario(String dni, String nombre, String apellidos, String nohmreUsuario, String contrasenaHash) {
+    public Usuario(String dni, String nombre, String apellidos, String nombreUsuario, String contrasenaHash,
+            Set<GrupoPermisos> gruposPermisos, Set<Permiso> permisos) {
         this.dni = dni;
         this.nombre = nombre;
         this.apellidos = apellidos;
-        this.nombreUsuario = nohmreUsuario;
+        this.nombreUsuario = nombreUsuario;
         this.contrasenaHash = contrasenaHash;
+        this.gruposPermisos = gruposPermisos;
+        this.permisos = permisos;
     }
+
     public UsuarioDTO toDTO() {
-        return new UsuarioDTO(this.dni, this.nombre, this.apellidos, this.nombreUsuario);
+        return new UsuarioDTO(this.dni, this.nombre, this.apellidos, this.nombreUsuario , this.gruposPermisos, this.permisos);
     }
+
     public String getDni() {
         return dni;
     }
@@ -62,8 +81,8 @@ public class Usuario {
         return nombreUsuario;
     }
 
-    public void setNombreUsuario(String nohmreUsuario) {
-        this.nombreUsuario = nohmreUsuario;
+    public void setNombreUsuario(String nombreUsuario) {
+        this.nombreUsuario = nombreUsuario;
     }
 
     public String getContrasenaHash() {
@@ -72,5 +91,21 @@ public class Usuario {
 
     public void setContrasenaHash(String contrasenaHash) {
         this.contrasenaHash = contrasenaHash;
+    }
+
+    public Set<GrupoPermisos> getGruposPermisos() {
+        return gruposPermisos;
+    }
+
+    public void setGruposPermisos(Set<GrupoPermisos> gruposPermisos) {
+        this.gruposPermisos = gruposPermisos;
+    }
+
+    public Set<Permiso> getPermisos() {
+        return permisos;
+    }
+
+    public void setPermisos(Set<Permiso> permisos) {
+        this.permisos = permisos;
     }
 }
