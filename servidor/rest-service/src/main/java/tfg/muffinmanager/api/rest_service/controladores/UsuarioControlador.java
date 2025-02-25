@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import tfg.muffinmanager.api.rest_service.modelo.dto.UsuarioDTO;
 import tfg.muffinmanager.api.rest_service.modelo.entidades.Usuario;
-import tfg.muffinmanager.api.rest_service.servicios.UsuarioServicio;
+import tfg.muffinmanager.api.rest_service.servicios.UsuarioServicioImpl;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,7 +25,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 @RequestMapping("/usuario")
 public class UsuarioControlador {
     @Autowired
-    UsuarioServicio usuarioServicio;
+    UsuarioServicioImpl usuarioServicio;
 
     @GetMapping()
     public ArrayList<UsuarioDTO> obtenerUsuarios() {

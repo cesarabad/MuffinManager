@@ -24,6 +24,8 @@ public class UsuarioDTO {
         this.gruposPermisos = gruposPermisos;
         this.permisos = permisos;
     }
+
+    
     public String getDni() {
         return dni;
     }
