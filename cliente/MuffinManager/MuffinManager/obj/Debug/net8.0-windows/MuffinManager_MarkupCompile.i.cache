@@ -1,0 +1,20 @@
+﻿MuffinManager
+1.0.0.0
+
+winexe
+C#
+.cs
+D:\TFG MDLH\MuffinManager\cliente\MuffinManager\MuffinManager\obj\Debug\net8.0-windows\
+MuffinManager
+none
+false
+TRACE;DEBUG;NET;NET8_0;NETCOREAPP
+D:\TFG MDLH\MuffinManager\cliente\MuffinManager\MuffinManager\App.xaml
+9882018152
+
+16-810686887
+1991108384499
+Vista\Gestion\Elementos\GestionArticuloVista.xaml;Vista\Gestion\Elementos\GestionCajaVista.xaml;Vista\Gestion\Elementos\GestionFormaVista.xaml;Vista\Gestion\Elementos\GestionImpresionPaqueteVista.xaml;Vista\Gestion\Elementos\GestionMarcaVista.xaml;Vista\Gestion\Elementos\GestionProductoVista.xaml;Vista\Gestion\GestionProductoTerminadoVista.xaml;Vista\MenuProductoTerminadoVista.xaml;Vista\Stock\StockProductoTerminadoVista.xaml;
+
+True
+

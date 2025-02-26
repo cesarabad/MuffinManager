@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup />
+  <ItemGroup>
+    <ApplicationDefinition Update="App.xaml">
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Vista\Gestion\Elementos\GestionArticuloVista.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Vista\Gestion\Elementos\GestionCajaVista.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Vista\Gestion\Elementos\GestionFormaVista.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Vista\Gestion\Elementos\GestionImpresionPaqueteVista.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Vista\Gestion\Elementos\GestionMarcaVista.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Vista\Gestion\Elementos\GestionProductoVista.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Vista\Gestion\GestionProductoTerminadoVista.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Vista\MenuProductoTerminadoVista.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Vista\Stock\StockProductoTerminadoVista.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Vista\Gestion\Elementos\GestionArticuloVista.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Vista\Gestion\Elementos\GestionCajaVista.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Vista\Gestion\Elementos\GestionFormaVista.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Vista\Gestion\Elementos\GestionImpresionPaqueteVista.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Vista\Gestion\Elementos\GestionMarcaVista.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Vista\Gestion\Elementos\GestionProductoVista.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Vista\Gestion\GestionProductoTerminadoVista.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Vista\MenuProductoTerminadoVista.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Vista\Stock\StockProductoTerminadoVista.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+</Project>
