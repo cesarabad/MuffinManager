@@ -5,18 +5,24 @@ import java.sql.Timestamp;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.IdClass;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinColumns;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import tfg.muffinmanager.api.rest_service.modelo.dto.ArticuloDTO;
+import tfg.muffinmanager.api.rest_service.modelo.entidades.ids.ArticuloId;
 
 @Entity
 @Table(name = "articulo")
+@IdClass(ArticuloId.class)
 public class Articulo {
 
     @Id
+    @Column(length = 20)
     private String referencia;
+    @Id
+    private int version;
     @ManyToOne
     @JoinColumns({
         @JoinColumn(name = "marca", referencedColumnName = "id"),
@@ -38,7 +44,6 @@ public class Articulo {
     private String ean13;
     @Column(name = "lineaproduccion")
     private Integer lineaProduccion;
-    private int version;
     @Column(name = "fechacreacion", nullable = false)
     private Timestamp fechaCreacion;
     @Column(name = "fechafin")

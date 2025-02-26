@@ -47,7 +47,7 @@ public class MarcaServicioImpl implements MarcaServicio{
 
     @Override
     public Marca obtenerPorId(String id) {
-        return marcaRepositorio.findById(id).get();
+        return marcaRepositorio.findByIdMarca(id);
     }
 
 }

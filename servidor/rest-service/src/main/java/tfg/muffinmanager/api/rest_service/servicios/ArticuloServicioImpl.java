@@ -51,5 +51,10 @@ public class ArticuloServicioImpl implements ArticuloServicio {
         return articulos;
     }
 
+    @Override
+    public Articulo obtenerPorId(String id) {
+        return articuloRepositorio.findByReferencia(id);
+    }
+
 
 }

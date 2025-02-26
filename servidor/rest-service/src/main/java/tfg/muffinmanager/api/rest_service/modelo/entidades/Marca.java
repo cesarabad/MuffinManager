@@ -5,21 +5,25 @@ import java.sql.Timestamp;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.IdClass;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import tfg.muffinmanager.api.rest_service.modelo.dto.MarcaDTO;
+import tfg.muffinmanager.api.rest_service.modelo.entidades.ids.MarcaId;
 
 @Entity
 @Table(name = "marca")
+@IdClass(MarcaId.class)
 public class Marca {
     @Id
     @Column(name="id", length = 10)
     private String idMarca;
+    @Id
+    private int version;
     @Column(length = 80, nullable = false)
     private String nombre;
     private byte[] logo;
-    private int version; 
     @Column(name="fechacreacion", nullable = false)
     private Timestamp fechaCreacion;
     @Column(name="fechafin")

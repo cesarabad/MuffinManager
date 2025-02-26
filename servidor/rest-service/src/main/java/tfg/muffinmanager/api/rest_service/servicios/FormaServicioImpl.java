@@ -40,7 +40,7 @@ public class FormaServicioImpl implements FormaServicio {
 
     @Override
     public Forma obtenerPorId(String id) {
-        return formaRepositorio.findById(id).get();
+        return formaRepositorio.findByIdForma(id);
     }
 
 

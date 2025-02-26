@@ -5,20 +5,24 @@ import java.sql.Timestamp;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.IdClass;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import tfg.muffinmanager.api.rest_service.modelo.dto.FormaDTO;
+import tfg.muffinmanager.api.rest_service.modelo.entidades.ids.FormaId;
 
 @Entity
 @Table(name = "forma")
+@IdClass(FormaId.class)
 public class Forma {
     @Id
     @Column(name="id", length = 10)
     private String idForma;
+    @Id
+    private int version;
     @Column(length = 80, nullable = false)
     private String descripcion;
-    private int version;
     @Column(name="fechacreacion", nullable = false)
     private Timestamp fechaCreacion;
     @Column(name="fechafin")
