@@ -45,4 +45,9 @@ public class MarcaServicioImpl implements MarcaServicio{
         return marcas;
     }
 
+    @Override
+    public Marca obtenerPorId(String id) {
+        return marcaRepositorio.findById(id).get();
+    }
+
 }
