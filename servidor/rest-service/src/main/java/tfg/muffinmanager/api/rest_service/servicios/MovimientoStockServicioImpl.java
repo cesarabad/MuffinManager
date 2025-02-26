@@ -43,7 +43,7 @@ public class MovimientoStockServicioImpl implements MovimientoStockServicio {
         MovimientoStock movimiento = new MovimientoStock(movimientoStock.getNumero()
         ,stockProducto
         ,usuarioServicio.dtoToUsuario(usuarioServicio.obtenerPorDni(movimientoStock.getResponsable()))
-        ,Timestamp.valueOf(movimientoStock.getFechaYHora()),movimientoStock.getObservaciones()); 
+        ,Timestamp.valueOf(movimientoStock.getFechaYHora()),movimientoStock.getUnidades(),movimientoStock.getObservaciones()); 
 
         return movimientoStockRepositorio.save(movimiento).toDto();
     }

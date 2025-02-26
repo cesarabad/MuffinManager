@@ -6,6 +6,8 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.IdClass;
+import jakarta.persistence.Inheritance;
+import jakarta.persistence.InheritanceType;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinColumns;
 import jakarta.persistence.ManyToOne;
@@ -16,10 +18,11 @@ import tfg.muffinmanager.api.rest_service.modelo.entidades.ids.MovimientoStockId
 @Entity
 @Table(name = "movimiento_stock")
 @IdClass(MovimientoStockId.class)
+@Inheritance(strategy = InheritanceType.JOINED)
 public class MovimientoStock {
 
     @Id
-    private int numero;
+    protected int numero;
     @Id
     @ManyToOne
     @JoinColumns({
@@ -28,31 +31,35 @@ public class MovimientoStock {
         @jakarta.persistence.JoinColumn(name = "lote", referencedColumnName = "lote"),
         @jakarta.persistence.JoinColumn(name = "impresionpaquete", referencedColumnName = "impresionpaquete")
     })
-    private StockProducto stockProducto;
+    protected StockProducto stockProducto;
     @JoinColumn(name = "responsable")
     @ManyToOne
-    private Usuario responsable;
+    protected Usuario responsable;
     @Column(name = "fechayhora", nullable = false)
-    private Timestamp fechaYHora;
-    private String observaciones;
+    protected Timestamp fechaYHora;
+    protected int unidades;
+    protected String observaciones;
 
     public MovimientoStock() {
     }
 
     public MovimientoStock(int numero, StockProducto stockProducto, Usuario responsable, Timestamp fechaYHora,
-            String observaciones) {
+            int unidades,String observaciones) {
         this.numero = numero;
         this.stockProducto = stockProducto;
         this.responsable = responsable;
         this.fechaYHora = fechaYHora;
+        this.unidades = unidades;
         this.observaciones = observaciones;
     }
 
     public MovimientoStockDTO toDto() {
-        return new MovimientoStockDTO(numero, stockProducto.getProducto().getReferencia(),
+        return new MovimientoStockDTO("MovimientoStock", numero, stockProducto.getProducto().getReferencia(),
                 stockProducto.getLote(), stockProducto.getImpresionPaquete().getAbreviatura(), responsable.getDni(),
-                fechaYHora.toLocalDateTime(), observaciones);
+                fechaYHora.toLocalDateTime(),unidades, observaciones);
     }
+
+    
     public int getNumero() {
         return numero;
     }
@@ -82,6 +89,14 @@ public class MovimientoStock {
     }
     public void setFechaYHora(Timestamp fechaYHora) {
         this.fechaYHora = fechaYHora;
+    }
+
+    public int getUnidades() {
+        return unidades;
+    }
+
+    public void setUnidades(int unidades) {
+        this.unidades = unidades;
     }
 
     public String getObservaciones() {

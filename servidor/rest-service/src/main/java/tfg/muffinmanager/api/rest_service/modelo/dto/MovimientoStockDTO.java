@@ -4,36 +4,41 @@ import java.time.LocalDateTime;
 
 public class MovimientoStockDTO {
 
+    protected String tipo;
     private int numero;
     private String producto;
     private String lote;
     private String impresionPaquete;
     private String responsable;
+    private int unidades;
     private LocalDateTime fechaYHora;
     private String observaciones;
 
     public MovimientoStockDTO() {
     }
 
-    public MovimientoStockDTO(int numero, String producto, String lote, String impresionPaquete, String responsable,
-            LocalDateTime fechaYHora, String observaciones) {
+    public MovimientoStockDTO(String tipo, int numero, String producto, String lote, String impresionPaquete, String responsable, LocalDateTime fechaYHora, int unidades, String observaciones) {
+        this.tipo = tipo;
         this.numero = numero;
         this.producto = producto;
         this.lote = lote;
         this.impresionPaquete = impresionPaquete;
         this.responsable = responsable;
         this.fechaYHora = fechaYHora;
+        this.unidades = unidades;
         this.observaciones = observaciones;
     }
     @Override
     public String toString() {
         return "MovimientoStockDTO{" +
+                "tipo='" + tipo + '\'' +
                 "numero=" + numero +
                 ", producto='" + producto + '\'' +
                 ", lote='" + lote + '\'' +
                 ", impresionPaquete='" + impresionPaquete + '\'' +
                 ", responsable='" + responsable + '\'' +
                 ", fechaYHora=" + fechaYHora +
+                ", unidades=" + unidades +
                 ", observaciones='" + observaciones + '\'' +
                 '}';
     }
@@ -55,6 +60,14 @@ public class MovimientoStockDTO {
 
     public String getLote() {
         return lote;
+    }
+
+    public int getUnidades() {
+        return unidades;
+    }
+
+    public void setUnidades(int unidades) {
+        this.unidades = unidades;
     }
 
     public void setLote(String lote) {
@@ -91,5 +104,13 @@ public class MovimientoStockDTO {
 
     public void setObservaciones(String observaciones) {
         this.observaciones = observaciones;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
     }
 }

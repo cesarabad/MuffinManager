@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import tfg.muffinmanager.api.rest_service.modelo.dto.StockProductoDTO;
+import tfg.muffinmanager.api.rest_service.modelo.dto.StockProductoDTOMovimientos;
 import tfg.muffinmanager.api.rest_service.servicios.interfaces.StockProductoServicio;
 
 @RestController
@@ -28,5 +29,10 @@ public class StockProductoControlador {
     public StockProductoDTO crearStockProducto(@RequestBody StockProductoDTO stockProductoDTO) {
         
         return stockProductoServicio.crearStockProducto(stockProductoDTO);
+    }
+
+    @GetMapping("/movimientos")
+    public ArrayList<StockProductoDTOMovimientos> obtenerStockProductoConMovimientos() {
+        return stockProductoServicio.obtenerStockProductoConMovimientos();
     }
 }
