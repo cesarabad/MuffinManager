@@ -128,7 +128,7 @@ CREATE TABLE `Stock_Producto` (
     `producto` VARCHAR(20) NOT NULL,
     `versionProducto` INT NOT NULL,
     `lote` CHAR(5) NOT NULL,
-    `impresionPaquete` VARCHAR(12) NOT NULL,
+    `impresionPaquete` VARCHAR(12),
     `unidades` INT NOT NULL,
     PRIMARY KEY (`producto`, `versionProducto`, `lote`, `impresionPaquete`),
     FOREIGN KEY (`producto`, `versionProducto`) REFERENCES `producto`(`referencia`, `version`) ON DELETE CASCADE,
@@ -140,12 +140,14 @@ CREATE TABLE `Movimiento_Stock` (
     `producto` VARCHAR(20) NOT NULL,
     `versionProducto` INT NOT NULL,
     `lote` CHAR(5) NOT NULL,
+    `impresionPaquete` VARCHAR(12),
     `responsable` CHAR(9),
     `fechaYHora` TIMESTAMP NOT NULL,
     `observaciones` VARCHAR(255),
-    PRIMARY KEY (`numero`, `producto`, `versionProducto`, `lote`),
+    PRIMARY KEY (`numero`, `producto`, `versionProducto`, `lote`, `impresionPaquete`),
     FOREIGN KEY (`producto`, `versionProducto`, `lote`) REFERENCES `Stock_Producto`(`producto`, `versionProducto`, `lote`) ON DELETE CASCADE,
-    FOREIGN KEY (`responsable`) REFERENCES `usuario`(`dni`) ON DELETE SET NULL
+    FOREIGN KEY (`impresionPaquete`) REFERENCES `Stock_Producto`(`impresionPaquete`) ON DELETE CASCADE,
+    FOREIGN KEY (`responsable`) REFERENCES `usuario`(`dni`) ON DELETE CASCADE
 );
 
 CREATE TABLE `Entrada_Stock` (
@@ -153,9 +155,11 @@ CREATE TABLE `Entrada_Stock` (
     `producto` VARCHAR(20) NOT NULL,
     `versionProducto` INT NOT NULL,
     `lote` CHAR(5) NOT NULL,
+    `impresionPaquete` VARCHAR(12),
     `unidades` INT NOT NULL,
-    PRIMARY KEY (`numero`, `producto`, `versionProducto`, `lote`),
-    FOREIGN KEY (`numero`, `producto`, `versionProducto`, `lote`) REFERENCES `Movimiento_Stock`(`numero`, `producto`, `versionProducto`, `lote`) ON DELETE CASCADE
+    PRIMARY KEY (`numero`, `producto`, `versionProducto`, `lote`, `impresionPaquete`),
+    FOREIGN KEY (`numero`, `producto`, `versionProducto`, `lote`) REFERENCES `Movimiento_Stock`(`numero`, `producto`, `versionProducto`, `lote`) ON DELETE CASCADE,
+    FOREIGN KEY (`impresionPaquete`) REFERENCES `Movimiento_Stock`(`impresionPaquete`) ON DELETE CASCADE
 );
 
 CREATE TABLE `Salida_Stock` (
@@ -163,10 +167,12 @@ CREATE TABLE `Salida_Stock` (
     `producto` VARCHAR(20) NOT NULL,
     `versionProducto` INT NOT NULL,
     `lote` CHAR(5) NOT NULL,
+    `impresionPaquete` VARCHAR(12),
     `unidades` INT NOT NULL,
     `destino` VARCHAR(80) NOT NULL,
-    PRIMARY KEY (`numero`, `producto`, `versionProducto`, `lote`),
-    FOREIGN KEY (`numero`, `producto`, `versionProducto`, `lote`) REFERENCES `Movimiento_Stock`(`numero`, `producto`, `versionProducto`, `lote`) ON DELETE CASCADE
+    PRIMARY KEY (`numero`, `producto`, `versionProducto`, `lote`, `impresionPaquete`),
+    FOREIGN KEY (`numero`, `producto`, `versionProducto`, `lote`) REFERENCES `Movimiento_Stock`(`numero`, `producto`, `versionProducto`, `lote`) ON DELETE CASCADE,
+    FOREIGN KEY (`impresionPaquete`) REFERENCES `Movimiento_Stock`(`impresionPaquete`) ON DELETE CASCADE
 );
 
 CREATE TABLE `Ajuste_Stock` (
@@ -174,9 +180,11 @@ CREATE TABLE `Ajuste_Stock` (
     `producto` VARCHAR(20) NOT NULL,
     `versionProducto` INT NOT NULL,
     `lote` CHAR(5) NOT NULL,
+    `impresionPaquete` VARCHAR(12),
     `unidades` INT NOT NULL,
-    PRIMARY KEY (`numero`, `producto`, `versionProducto`, `lote`),
-    FOREIGN KEY (`numero`, `producto`, `versionProducto`, `lote`) REFERENCES `Movimiento_Stock`(`numero`, `producto`, `versionProducto`, `lote`) ON DELETE CASCADE
+    PRIMARY KEY (`numero`, `producto`, `versionProducto`, `lote`, `impresionPaquete`),
+    FOREIGN KEY (`numero`, `producto`, `versionProducto`, `lote`) REFERENCES `Movimiento_Stock`(`numero`, `producto`, `versionProducto`, `lote`) ON DELETE CASCADE,
+    FOREIGN KEY (`impresionPaquete`) REFERENCES `Movimiento_Stock`(`impresionPaquete`) ON DELETE CASCADE
 );
 
 CREATE TABLE `Reserva_Stock` (
@@ -184,10 +192,12 @@ CREATE TABLE `Reserva_Stock` (
     `producto` VARCHAR(20) NOT NULL,
     `versionProducto` INT NOT NULL,
     `lote` CHAR(5) NOT NULL,
+    `impresionPaquete` VARCHAR(12),
     `unidades` INT,
     `destino` VARCHAR(80),
-    PRIMARY KEY (`numero`, `producto`, `versionProducto`, `lote`),
-    FOREIGN KEY (`numero`, `producto`, `versionProducto`, `lote`) REFERENCES `Movimiento_Stock`(`numero`, `producto`, `versionProducto`, `lote`) ON DELETE CASCADE
+    PRIMARY KEY (`numero`, `producto`, `versionProducto`, `lote`, `impresionPaquete`),
+    FOREIGN KEY (`numero`, `producto`, `versionProducto`, `lote`) REFERENCES `Movimiento_Stock`(`numero`, `producto`, `versionProducto`, `lote`) ON DELETE CASCADE,
+    FOREIGN KEY (`impresionPaquete`) REFERENCES `Movimiento_Stock`(`impresionPaquete`) ON DELETE CASCADE
 );
 
 CREATE TABLE `Descripcion_Articulo` (
@@ -202,7 +212,7 @@ CREATE TABLE `Descripcion_Articulo` (
     FOREIGN KEY (`responsable`) REFERENCES `usuario`(`dni`) ON DELETE SET NULL
 );
 
-CREATE TABLE Mensaje (
+CREATE TABLE `Mensaje` (
     `id` INT AUTO_INCREMENT NOT NULL,
     `texto` TEXT NOT NULL,
     `fechaCreacion` TIMESTAMP NOT NULL,
