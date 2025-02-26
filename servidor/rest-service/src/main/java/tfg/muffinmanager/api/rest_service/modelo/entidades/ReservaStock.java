@@ -1,4 +1,6 @@
 package tfg.muffinmanager.api.rest_service.modelo.entidades;
+import java.sql.Timestamp;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.PrimaryKeyJoinColumn;
 import jakarta.persistence.PrimaryKeyJoinColumns;
@@ -22,10 +24,13 @@ public class ReservaStock extends MovimientoStock{
     public ReservaStock() {
     }
 
-    public ReservaStock(int numero, StockProducto stockProducto, int unidades, String destino) {
+    public ReservaStock(int numero, StockProducto stockProducto, Usuario responsable, Timestamp fechaYHora, int unidades,String observaciones, String destino) {
         this.numero = numero;
         this.stockProducto = stockProducto;
         this.unidades = unidades;
+        this.responsable = responsable;
+        this.fechaYHora = fechaYHora;
+        this.observaciones = observaciones;
         this.destino = destino;
     }
 
