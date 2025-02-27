@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MuffinManager.VistaModelo.Gestion.Elementos;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,14 +15,20 @@ using System.Windows.Shapes;
 
 namespace MuffinManager.Vista.Gestion.Elementos
 {
-    /// <summary>
-    /// Lógica de interacción para GestionCajaVista.xaml
-    /// </summary>
+    
     public partial class GestionCajaVista : Window
     {
-        public GestionCajaVista()
+        private GestionCajaVistaModelo vistaModelo;
+        public GestionCajaVista(GestionProductoTerminadoVista ventanaAnterior)
         {
             InitializeComponent();
+            vistaModelo = new GestionCajaVistaModelo(this, ventanaAnterior);
+            this.DataContext = vistaModelo;
+        }
+
+        private async void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            await vistaModelo.CargarDatosAsync();
         }
     }
 }

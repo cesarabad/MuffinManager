@@ -1,10 +1,5 @@
 ﻿using MuffinManager.Vista;
 using MuffinManager.Vista.Gestion.Elementos;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 using CommunityToolkit.Mvvm.Input;
 
@@ -53,42 +48,36 @@ namespace MuffinManager.VistaModelo.Gestion
         {
             GestionArticuloVista gestionArticulo = new GestionArticuloVista();
             gestionArticulo.Show();
-            ventana.Close();
         }
 
         private void abrirGestionMarca()
         {
             GestionMarcaVista gestionMarca = new GestionMarcaVista();
             gestionMarca.Show();
-            ventana.Close();
         }
 
         private void abrirGestionProducto()
         {
             GestionProductoVista gestionProducto = new GestionProductoVista();
             gestionProducto.Show();
-            ventana.Close();
         }
 
         private void abrirGestionForma()
         {
             GestionFormaVista gestionForma = new GestionFormaVista();
             gestionForma.Show();
-            ventana.Close();
         }
 
         private void abrirGestionCaja()
         {
-            GestionCajaVista gestionCaja = new GestionCajaVista();
+            GestionCajaVista gestionCaja = new GestionCajaVista(ventana);
             gestionCaja.Show();
-            ventana.Close();
         }
 
         private void abrirGestionImpresionPaquete()
         {
             GestionImpresionPaqueteVista impresionPaquete = new GestionImpresionPaqueteVista();
             impresionPaquete.Show();
-            ventana.Close();
         }
     }
 }

@@ -3,24 +3,56 @@
   "WorkspaceRootPath": "D:\\TFG MDLH\\MuffinManager\\cliente\\MuffinManager\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C011783D-8445-4BA4-9305-A5DF1E355DF2}|MuffinManager\\MuffinManager.csproj|d:\\tfg mdlh\\muffinmanager\\cliente\\muffinmanager\\muffinmanager\\vistamodelo\\gestion\\gestionproductoterminadovistamodelo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C011783D-8445-4BA4-9305-A5DF1E355DF2}|MuffinManager\\MuffinManager.csproj|solutionrelative:muffinmanager\\vistamodelo\\gestion\\gestionproductoterminadovistamodelo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C011783D-8445-4BA4-9305-A5DF1E355DF2}|MuffinManager\\MuffinManager.csproj|d:\\tfg mdlh\\muffinmanager\\cliente\\muffinmanager\\muffinmanager\\vista\\gestion\\elementos\\gestioncajavista.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{C011783D-8445-4BA4-9305-A5DF1E355DF2}|MuffinManager\\MuffinManager.csproj|solutionrelative:muffinmanager\\vista\\gestion\\elementos\\gestioncajavista.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C011783D-8445-4BA4-9305-A5DF1E355DF2}|MuffinManager\\MuffinManager.csproj|d:\\tfg mdlh\\muffinmanager\\cliente\\muffinmanager\\muffinmanager\\vistamodelo\\menuproductoterminadovistamodelo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C011783D-8445-4BA4-9305-A5DF1E355DF2}|MuffinManager\\MuffinManager.csproj|solutionrelative:muffinmanager\\vistamodelo\\menuproductoterminadovistamodelo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C011783D-8445-4BA4-9305-A5DF1E355DF2}|MuffinManager\\MuffinManager.csproj|d:\\tfg mdlh\\muffinmanager\\cliente\\muffinmanager\\muffinmanager\\vista\\gestion\\elementos\\gestioncajavista.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C011783D-8445-4BA4-9305-A5DF1E355DF2}|MuffinManager\\MuffinManager.csproj|solutionrelative:muffinmanager\\vista\\gestion\\elementos\\gestioncajavista.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C011783D-8445-4BA4-9305-A5DF1E355DF2}|MuffinManager\\MuffinManager.csproj|d:\\tfg mdlh\\muffinmanager\\cliente\\muffinmanager\\muffinmanager\\vistamodelo\\gestion\\elementos\\gestioncajavistamodelo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C011783D-8445-4BA4-9305-A5DF1E355DF2}|MuffinManager\\MuffinManager.csproj|solutionrelative:muffinmanager\\vistamodelo\\gestion\\elementos\\gestioncajavistamodelo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C011783D-8445-4BA4-9305-A5DF1E355DF2}|MuffinManager\\MuffinManager.csproj|d:\\tfg mdlh\\muffinmanager\\cliente\\muffinmanager\\muffinmanager\\vista\\gestion\\gestionproductoterminadovista.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{C011783D-8445-4BA4-9305-A5DF1E355DF2}|MuffinManager\\MuffinManager.csproj|solutionrelative:muffinmanager\\vista\\gestion\\gestionproductoterminadovista.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C011783D-8445-4BA4-9305-A5DF1E355DF2}|MuffinManager\\MuffinManager.csproj|d:\\tfg mdlh\\muffinmanager\\cliente\\muffinmanager\\muffinmanager\\vista\\menuproductoterminadovista.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{C011783D-8445-4BA4-9305-A5DF1E355DF2}|MuffinManager\\MuffinManager.csproj|solutionrelative:muffinmanager\\vista\\menuproductoterminadovista.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{C011783D-8445-4BA4-9305-A5DF1E355DF2}|MuffinManager\\MuffinManager.csproj|d:\\tfg mdlh\\muffinmanager\\cliente\\muffinmanager\\muffinmanager\\vista\\gestion\\elementos\\gestioncajavista.xaml||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{C011783D-8445-4BA4-9305-A5DF1E355DF2}|MuffinManager\\MuffinManager.csproj|solutionrelative:muffinmanager\\vista\\gestion\\elementos\\gestioncajavista.xaml||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C011783D-8445-4BA4-9305-A5DF1E355DF2}|MuffinManager\\MuffinManager.csproj|d:\\tfg mdlh\\muffinmanager\\cliente\\muffinmanager\\muffinmanager\\vista\\stock\\stockproductoterminadovista.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{C011783D-8445-4BA4-9305-A5DF1E355DF2}|MuffinManager\\MuffinManager.csproj|solutionrelative:muffinmanager\\vista\\stock\\stockproductoterminadovista.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{C011783D-8445-4BA4-9305-A5DF1E355DF2}|MuffinManager\\MuffinManager.csproj|d:\\tfg mdlh\\muffinmanager\\cliente\\muffinmanager\\muffinmanager\\servicios\\apiservicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C011783D-8445-4BA4-9305-A5DF1E355DF2}|MuffinManager\\MuffinManager.csproj|solutionrelative:muffinmanager\\servicios\\apiservicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C011783D-8445-4BA4-9305-A5DF1E355DF2}|MuffinManager\\MuffinManager.csproj|d:\\tfg mdlh\\muffinmanager\\cliente\\muffinmanager\\muffinmanager\\vistamodelo\\gestion\\gestionproductoterminadovistamodelo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C011783D-8445-4BA4-9305-A5DF1E355DF2}|MuffinManager\\MuffinManager.csproj|solutionrelative:muffinmanager\\vistamodelo\\gestion\\gestionproductoterminadovistamodelo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C011783D-8445-4BA4-9305-A5DF1E355DF2}|MuffinManager\\MuffinManager.csproj|d:\\tfg mdlh\\muffinmanager\\cliente\\muffinmanager\\muffinmanager\\modelo\\caja.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C011783D-8445-4BA4-9305-A5DF1E355DF2}|MuffinManager\\MuffinManager.csproj|solutionrelative:muffinmanager\\modelo\\caja.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C011783D-8445-4BA4-9305-A5DF1E355DF2}|MuffinManager\\MuffinManager.csproj|d:\\tfg mdlh\\muffinmanager\\cliente\\muffinmanager\\muffinmanager\\vistamodelo\\menuproductoterminadovistamodelo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C011783D-8445-4BA4-9305-A5DF1E355DF2}|MuffinManager\\MuffinManager.csproj|solutionrelative:muffinmanager\\vistamodelo\\menuproductoterminadovistamodelo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C011783D-8445-4BA4-9305-A5DF1E355DF2}|MuffinManager\\MuffinManager.csproj|d:\\tfg mdlh\\muffinmanager\\cliente\\muffinmanager\\muffinmanager\\modelo\\grupopermisos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C011783D-8445-4BA4-9305-A5DF1E355DF2}|MuffinManager\\MuffinManager.csproj|solutionrelative:muffinmanager\\modelo\\grupopermisos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C011783D-8445-4BA4-9305-A5DF1E355DF2}|MuffinManager\\MuffinManager.csproj|d:\\tfg mdlh\\muffinmanager\\cliente\\muffinmanager\\muffinmanager\\modelo\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C011783D-8445-4BA4-9305-A5DF1E355DF2}|MuffinManager\\MuffinManager.csproj|solutionrelative:muffinmanager\\modelo\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C011783D-8445-4BA4-9305-A5DF1E355DF2}|MuffinManager\\MuffinManager.csproj|d:\\tfg mdlh\\muffinmanager\\cliente\\muffinmanager\\muffinmanager\\modelo\\permiso.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C011783D-8445-4BA4-9305-A5DF1E355DF2}|MuffinManager\\MuffinManager.csproj|solutionrelative:muffinmanager\\modelo\\permiso.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C011783D-8445-4BA4-9305-A5DF1E355DF2}|MuffinManager\\MuffinManager.csproj|d:\\tfg mdlh\\muffinmanager\\cliente\\muffinmanager\\muffinmanager\\vista\\menuproductoterminadovista.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{C011783D-8445-4BA4-9305-A5DF1E355DF2}|MuffinManager\\MuffinManager.csproj|solutionrelative:muffinmanager\\vista\\menuproductoterminadovista.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,32 +62,136 @@
       "DocumentGroups": [
         {
           "DockedWidth": 248,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ApiServicio.cs",
+              "DocumentMoniker": "D:\\TFG MDLH\\MuffinManager\\cliente\\MuffinManager\\MuffinManager\\Servicios\\ApiServicio.cs",
+              "RelativeDocumentMoniker": "MuffinManager\\Servicios\\ApiServicio.cs",
+              "ToolTip": "D:\\TFG MDLH\\MuffinManager\\cliente\\MuffinManager\\MuffinManager\\Servicios\\ApiServicio.cs",
+              "RelativeToolTip": "MuffinManager\\Servicios\\ApiServicio.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAADgvxgAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-27T01:05:57.674Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Permiso.cs",
+              "DocumentMoniker": "D:\\TFG MDLH\\MuffinManager\\cliente\\MuffinManager\\MuffinManager\\Modelo\\Permiso.cs",
+              "RelativeDocumentMoniker": "MuffinManager\\Modelo\\Permiso.cs",
+              "ToolTip": "D:\\TFG MDLH\\MuffinManager\\cliente\\MuffinManager\\MuffinManager\\Modelo\\Permiso.cs",
+              "RelativeToolTip": "MuffinManager\\Modelo\\Permiso.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-26T23:49:46.256Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Usuario.cs",
+              "DocumentMoniker": "D:\\TFG MDLH\\MuffinManager\\cliente\\MuffinManager\\MuffinManager\\Modelo\\Usuario.cs",
+              "RelativeDocumentMoniker": "MuffinManager\\Modelo\\Usuario.cs",
+              "ToolTip": "D:\\TFG MDLH\\MuffinManager\\cliente\\MuffinManager\\MuffinManager\\Modelo\\Usuario.cs",
+              "RelativeToolTip": "MuffinManager\\Modelo\\Usuario.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAiwCAAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-26T23:41:49.707Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Caja.cs",
+              "DocumentMoniker": "D:\\TFG MDLH\\MuffinManager\\cliente\\MuffinManager\\MuffinManager\\Modelo\\Caja.cs",
+              "RelativeDocumentMoniker": "MuffinManager\\Modelo\\Caja.cs",
+              "ToolTip": "D:\\TFG MDLH\\MuffinManager\\cliente\\MuffinManager\\MuffinManager\\Modelo\\Caja.cs",
+              "RelativeToolTip": "MuffinManager\\Modelo\\Caja.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAApwBYAAABkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-26T23:53:58.836Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "GestionCajaVista.xaml",
+              "DocumentMoniker": "D:\\TFG MDLH\\MuffinManager\\cliente\\MuffinManager\\MuffinManager\\Vista\\Gestion\\Elementos\\GestionCajaVista.xaml",
+              "RelativeDocumentMoniker": "MuffinManager\\Vista\\Gestion\\Elementos\\GestionCajaVista.xaml",
+              "ToolTip": "D:\\TFG MDLH\\MuffinManager\\cliente\\MuffinManager\\MuffinManager\\Vista\\Gestion\\Elementos\\GestionCajaVista.xaml*",
+              "RelativeToolTip": "MuffinManager\\Vista\\Gestion\\Elementos\\GestionCajaVista.xaml*",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-02-26T23:40:12.426Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "GestionCajaVistaModelo.cs",
+              "DocumentMoniker": "D:\\TFG MDLH\\MuffinManager\\cliente\\MuffinManager\\MuffinManager\\VistaModelo\\Gestion\\Elementos\\GestionCajaVistaModelo.cs",
+              "RelativeDocumentMoniker": "MuffinManager\\VistaModelo\\Gestion\\Elementos\\GestionCajaVistaModelo.cs",
+              "ToolTip": "D:\\TFG MDLH\\MuffinManager\\cliente\\MuffinManager\\MuffinManager\\VistaModelo\\Gestion\\Elementos\\GestionCajaVistaModelo.cs",
+              "RelativeToolTip": "MuffinManager\\VistaModelo\\Gestion\\Elementos\\GestionCajaVistaModelo.cs",
+              "ViewState": "AgIAADkAAAAAAAAAAADwv0YAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-26T23:40:07.246Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "GestionCajaVista.xaml.cs",
+              "DocumentMoniker": "D:\\TFG MDLH\\MuffinManager\\cliente\\MuffinManager\\MuffinManager\\Vista\\Gestion\\Elementos\\GestionCajaVista.xaml.cs",
+              "RelativeDocumentMoniker": "MuffinManager\\Vista\\Gestion\\Elementos\\GestionCajaVista.xaml.cs",
+              "ToolTip": "D:\\TFG MDLH\\MuffinManager\\cliente\\MuffinManager\\MuffinManager\\Vista\\Gestion\\Elementos\\GestionCajaVista.xaml.cs",
+              "RelativeToolTip": "MuffinManager\\Vista\\Gestion\\Elementos\\GestionCajaVista.xaml.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAQwBcAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-27T06:16:06.689Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "GestionProductoTerminadoVistaModelo.cs",
               "DocumentMoniker": "D:\\TFG MDLH\\MuffinManager\\cliente\\MuffinManager\\MuffinManager\\VistaModelo\\Gestion\\GestionProductoTerminadoVistaModelo.cs",
               "RelativeDocumentMoniker": "MuffinManager\\VistaModelo\\Gestion\\GestionProductoTerminadoVistaModelo.cs",
               "ToolTip": "D:\\TFG MDLH\\MuffinManager\\cliente\\MuffinManager\\MuffinManager\\VistaModelo\\Gestion\\GestionProductoTerminadoVistaModelo.cs",
               "RelativeToolTip": "MuffinManager\\VistaModelo\\Gestion\\GestionProductoTerminadoVistaModelo.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAAAB0AAAA/AAAAAAAAAA==",
+              "ViewState": "AgIAACYAAAAAAAAAAAAAAEYAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-26T22:21:49.747Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 8,
               "Title": "MenuProductoTerminadoVistaModelo.cs",
               "DocumentMoniker": "D:\\TFG MDLH\\MuffinManager\\cliente\\MuffinManager\\MuffinManager\\VistaModelo\\MenuProductoTerminadoVistaModelo.cs",
               "RelativeDocumentMoniker": "MuffinManager\\VistaModelo\\MenuProductoTerminadoVistaModelo.cs",
               "ToolTip": "D:\\TFG MDLH\\MuffinManager\\cliente\\MuffinManager\\MuffinManager\\VistaModelo\\MenuProductoTerminadoVistaModelo.cs",
               "RelativeToolTip": "MuffinManager\\VistaModelo\\MenuProductoTerminadoVistaModelo.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAbAAAAAAAAAA==",
+              "ViewState": "AgIAABIAAAAAAAAAAAAiwDUAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-26T21:59:00.732Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "GrupoPermisos.cs",
+              "DocumentMoniker": "D:\\TFG MDLH\\MuffinManager\\cliente\\MuffinManager\\MuffinManager\\Modelo\\GrupoPermisos.cs",
+              "RelativeDocumentMoniker": "MuffinManager\\Modelo\\GrupoPermisos.cs",
+              "ToolTip": "D:\\TFG MDLH\\MuffinManager\\cliente\\MuffinManager\\MuffinManager\\Modelo\\GrupoPermisos.cs",
+              "RelativeToolTip": "MuffinManager\\Modelo\\GrupoPermisos.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAYwA4AAABfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-26T23:50:26.517Z",
               "EditorCaption": ""
             }
           ]
@@ -81,7 +217,7 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 12,
               "Title": "MenuProductoTerminadoVista.xaml",
               "DocumentMoniker": "D:\\TFG MDLH\\MuffinManager\\cliente\\MuffinManager\\MuffinManager\\Vista\\MenuProductoTerminadoVista.xaml",
               "RelativeDocumentMoniker": "MuffinManager\\Vista\\MenuProductoTerminadoVista.xaml",
@@ -93,7 +229,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "GestionProductoTerminadoVista.xaml",
               "DocumentMoniker": "D:\\TFG MDLH\\MuffinManager\\cliente\\MuffinManager\\MuffinManager\\Vista\\Gestion\\GestionProductoTerminadoVista.xaml",
               "RelativeDocumentMoniker": "MuffinManager\\Vista\\Gestion\\GestionProductoTerminadoVista.xaml",
@@ -102,17 +238,39 @@
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2025-02-26T22:24:27.846Z",
               "EditorCaption": ""
-            },
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "FloatingWindowState": {
+        "Id": "70eb24ff-3d5b-42a3-9f34-0cd917cfd089",
+        "Display": 1,
+        "X": 0,
+        "Y": 83,
+        "Width": 800,
+        "Height": 600,
+        "WindowState": 2
+      },
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "StockProductoTerminadoVista.xaml",
-              "DocumentMoniker": "D:\\TFG MDLH\\MuffinManager\\cliente\\MuffinManager\\MuffinManager\\Vista\\Stock\\StockProductoTerminadoVista.xaml",
-              "RelativeDocumentMoniker": "MuffinManager\\Vista\\Stock\\StockProductoTerminadoVista.xaml",
-              "ToolTip": "D:\\TFG MDLH\\MuffinManager\\cliente\\MuffinManager\\MuffinManager\\Vista\\Stock\\StockProductoTerminadoVista.xaml",
-              "RelativeToolTip": "MuffinManager\\Vista\\Stock\\StockProductoTerminadoVista.xaml",
+              "Title": "GestionCajaVista.xaml",
+              "DocumentMoniker": "D:\\TFG MDLH\\MuffinManager\\cliente\\MuffinManager\\MuffinManager\\Vista\\Gestion\\Elementos\\GestionCajaVista.xaml",
+              "RelativeDocumentMoniker": "MuffinManager\\Vista\\Gestion\\Elementos\\GestionCajaVista.xaml",
+              "ToolTip": "D:\\TFG MDLH\\MuffinManager\\cliente\\MuffinManager\\MuffinManager\\Vista\\Gestion\\Elementos\\GestionCajaVista.xaml*",
+              "RelativeToolTip": "MuffinManager\\Vista\\Gestion\\Elementos\\GestionCajaVista.xaml*",
+              "ViewState": "AgIAAGcAAAAAAAAAAAAewHkAAAAzAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-02-26T22:07:17.993Z",
+              "WhenOpened": "2025-02-27T03:55:25.754Z",
               "EditorCaption": ""
             }
           ]

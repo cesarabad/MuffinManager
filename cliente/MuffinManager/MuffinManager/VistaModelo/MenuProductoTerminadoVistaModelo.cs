@@ -19,7 +19,6 @@ namespace MuffinManager.VistaModelo
         private ICommand stockPTBtn;
         private ICommand gestionPTBtn;
 
-        public event PropertyChangedEventHandler? PropertyChanged;
 
         public ICommand StockPTBtn
         {

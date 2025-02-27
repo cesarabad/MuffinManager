@@ -3,10 +3,153 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:MuffinManager.Vista.Gestion.Elementos"
+        xmlns:local="clr-namespace:MuffinManager.Vista.Gestion.Elementos" xmlns:elementos="clr-namespace:MuffinManager.VistaModelo.Gestion.Elementos" d:DataContext="{d:DesignInstance Type=elementos:GestionCajaVistaModelo}"
         mc:Ignorable="d"
-        Title="GestionCajaVista" Height="450" Width="800">
+        Title="GestionCajaVista" Height="650" Width="1250"
+        Loaded="Window_Loaded"
+        Background="IndianRed">
+    <Window.Resources>
+        <Style x:Key="estiloHeader" TargetType="TextBlock">
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontSize" Value="15px"/>
+        </Style>
+        <Style x:Key="estiloBotones" TargetType="Button">
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontSize" Value="15px"/>
+            <Setter Property="Padding" Value="0px, 15px"/>
+            <Setter Property="Margin" Value="20px,5px"/>
+            <Setter Property="Background" Value="WhiteSmoke"/>
+            <Setter Property="BorderThickness" Value="1.5"/>
+            <Setter Property="BorderBrush" Value="Black"/>
+        </Style>
+        <Style x:Key="estiloBody" TargetType="TextBlock">
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="FontSize" Value="16px"/>
+        </Style>
+        <Style x:Key="inputHeader" TargetType="TextBlock">
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontSize" Value="25px"/>
+        </Style>
+        <Style x:Key="inputBox" TargetType="TextBox">
+            <Setter Property="Background" Value="AntiqueWhite"/>
+            <Setter Property="BorderBrush" Value="Black"/>
+            <Setter Property="BorderThickness" Value="1.5px"/>
+            <Setter Property="FontSize" Value="17px"/>
+        </Style>
+    </Window.Resources>
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="3*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="5*"/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="volverBtn" Grid.Column="0" Content="Volver" Command="{Binding VolverBtn}" Margin="17px" Padding="0px" FontSize="15px" Style="{StaticResource estiloBotones}" TabIndex="8"/>
+            <TextBlock x:Name="header" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,200px,0" FontWeight="Bold" FontSize="29px" Text="CAJAS"/>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="4*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+
+            <ListView x:Name="cajasLista" SelectedItem="{Binding CajaSeleccionada}" Background="AntiqueWhite" ItemsSource="{Binding Cajas}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Column="0" Margin="20px" BorderBrush="Black" BorderThickness="2">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Width="110px">
+                            <GridViewColumn.Header>
+                                <TextBlock Text="ENV" Style="{StaticResource estiloHeader}"/>
+                            </GridViewColumn.Header>
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Env}" FontSize="20px" Style="{StaticResource estiloBody}"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Width="360px">
+                            <GridViewColumn.Header>
+                                <TextBlock Text="DESCRIPCION" Style="{StaticResource estiloHeader}"/>
+                            </GridViewColumn.Header>
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Descripcion}" Style="{StaticResource estiloBody}" TextTrimming="CharacterEllipsis"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Width="90px">
+                            <GridViewColumn.Header>
+                                <TextBlock Text="BASE EUR" Style="{StaticResource estiloHeader}"/>
+                            </GridViewColumn.Header>
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding BaseEuropeo}" Style="{StaticResource estiloBody}"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+
+                        <GridViewColumn Width="90px">
+                            <GridViewColumn.Header>
+                                <TextBlock Text="BASE STD" Style="{StaticResource estiloHeader}"/>
+                            </GridViewColumn.Header>
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding BaseAmericano}" Style="{StaticResource estiloBody}"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Width="85px">
+                            <GridViewColumn.Header>
+                                <TextBlock Text="ALTURA" Style="{StaticResource estiloHeader}"/>
+                            </GridViewColumn.Header>
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding AlturaDefecto}" Style="{StaticResource estiloBody}"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+            <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                <Button x:Name="agregarBtn" Content="AGREGAR" Command="{Binding AgregarBtn}" Style="{StaticResource estiloBotones}" TabIndex="5"/>
+                <Button x:Name="modificarBtn" Content="MODIFICAR" Style="{StaticResource estiloBotones}" Command="{Binding ModificarBtn}" TabIndex="6"/>
+                <Button x:Name="eliminarBtn" Content="ELIMINAR" Style="{StaticResource estiloBotones}" Command="{Binding EliminarBtn}" TabIndex="7"/>
+                <TextBlock x:Name="accionRealizada" FontSize="23px" FontWeight="Bold" HorizontalAlignment="Center" Margin="10px" Visibility="Hidden"/>
+            </StackPanel>
+        </Grid>
+
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="30px,10px">
+                        <TextBlock Text="ENV: " VerticalAlignment="Center" Margin="5px" Style="{StaticResource inputHeader}"/>
+                        <TextBox x:Name="envInput" Width="85px" Height="30px" TextAlignment="Center" VerticalAlignment="Center" Margin="5px" Style="{StaticResource inputBox}" TabIndex="0"/>
+                        <TextBlock Text="DESCRIPCION: " VerticalAlignment="Center" Margin="5px" Style="{StaticResource inputHeader}"/>
+                        <TextBox x:Name="descripcionInput" Width="400px" Height="30px" VerticalAlignment="Center" Margin="5px" Style="{StaticResource inputBox}" TabIndex="1"/>
+
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="30px, 10px">
+                        <TextBlock Text="BASE EUR: " VerticalAlignment="Center" Margin="5px" Style="{StaticResource inputHeader}"/>
+                        <TextBox x:Name="baseEuropeoInput" Width="45px" FontSize="30px" TextAlignment="Center" Height="45px"  Margin="5px" Style="{StaticResource inputBox}" TabIndex="2"/>
+                        <TextBlock Text="BASE STD: " VerticalAlignment="Center" Margin="5px" Style="{StaticResource inputHeader}"/>
+                        <TextBox x:Name="baseAmericanoInput" Width="45px" Height="45px" TextAlignment="Center" FontSize="30px" Margin="5px" Style="{StaticResource inputBox}" TabIndex="3"/>
+                        <TextBlock Text="ALTURA: " VerticalAlignment="Center" Margin="5px" Style="{StaticResource inputHeader}"/>
+                        <TextBox x:Name="alturaInput" Width="45px" Height="45px" TextAlignment="Center" FontSize="30px" Margin="5px" Style="{StaticResource inputBox}" TabIndex="4"/>
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+            <Image Source="/Recursos/Imagenes/logo.png" Grid.Column="1" Margin="15px,20px" HorizontalAlignment="Center"/>
+
+        </Grid>
+
     </Grid>
 </Window>

@@ -38,3 +38,17 @@ D:\TFG MDLH\MuffinManager\cliente\MuffinManager\MuffinManager\obj\Debug\net8.0-w
 D:\TFG MDLH\MuffinManager\cliente\MuffinManager\MuffinManager\obj\Debug\net8.0-windows\Vista\Gestion\Elementos\GestionImpresionPaqueteVista.baml
 D:\TFG MDLH\MuffinManager\cliente\MuffinManager\MuffinManager\obj\Debug\net8.0-windows\Vista\Gestion\Elementos\GestionMarcaVista.baml
 D:\TFG MDLH\MuffinManager\cliente\MuffinManager\MuffinManager\obj\Debug\net8.0-windows\Vista\Gestion\Elementos\GestionProductoVista.baml
+D:\TFG MDLH\MuffinManager\cliente\MuffinManager\MuffinManager\bin\Debug\net8.0-windows\Microsoft.Extensions.Configuration.dll
+D:\TFG MDLH\MuffinManager\cliente\MuffinManager\MuffinManager\bin\Debug\net8.0-windows\Microsoft.Extensions.Configuration.Abstractions.dll
+D:\TFG MDLH\MuffinManager\cliente\MuffinManager\MuffinManager\bin\Debug\net8.0-windows\Microsoft.Extensions.Configuration.FileExtensions.dll
+D:\TFG MDLH\MuffinManager\cliente\MuffinManager\MuffinManager\bin\Debug\net8.0-windows\Microsoft.Extensions.Configuration.Json.dll
+D:\TFG MDLH\MuffinManager\cliente\MuffinManager\MuffinManager\bin\Debug\net8.0-windows\Microsoft.Extensions.FileProviders.Abstractions.dll
+D:\TFG MDLH\MuffinManager\cliente\MuffinManager\MuffinManager\bin\Debug\net8.0-windows\Microsoft.Extensions.FileProviders.Physical.dll
+D:\TFG MDLH\MuffinManager\cliente\MuffinManager\MuffinManager\bin\Debug\net8.0-windows\Microsoft.Extensions.FileSystemGlobbing.dll
+D:\TFG MDLH\MuffinManager\cliente\MuffinManager\MuffinManager\bin\Debug\net8.0-windows\Microsoft.Extensions.Primitives.dll
+D:\TFG MDLH\MuffinManager\cliente\MuffinManager\MuffinManager\bin\Debug\net8.0-windows\Newtonsoft.Json.dll
+D:\TFG MDLH\MuffinManager\cliente\MuffinManager\MuffinManager\bin\Debug\net8.0-windows\System.IO.Pipelines.dll
+D:\TFG MDLH\MuffinManager\cliente\MuffinManager\MuffinManager\bin\Debug\net8.0-windows\System.Text.Encodings.Web.dll
+D:\TFG MDLH\MuffinManager\cliente\MuffinManager\MuffinManager\bin\Debug\net8.0-windows\System.Text.Json.dll
+D:\TFG MDLH\MuffinManager\cliente\MuffinManager\MuffinManager\bin\Debug\net8.0-windows\runtimes\browser\lib\net8.0\System.Text.Encodings.Web.dll
+D:\TFG MDLH\MuffinManager\cliente\MuffinManager\MuffinManager\bin\Debug\net8.0-windows\System.Net.Http.Json.dll

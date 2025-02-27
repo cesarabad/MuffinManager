@@ -17,6 +17,9 @@ public class CajaServicioImpl implements CajaServicio {
 
     @Override
     public Caja guardarCaja(Caja caja) {
+        if (cajaRepositorio.existsById(caja.getEnv())) {
+            return null;
+        }
         return cajaRepositorio.save(caja);
     }
 
@@ -28,22 +31,20 @@ public class CajaServicioImpl implements CajaServicio {
 
     @Override
     public Caja actualizarCaja(Caja caja) {
-        return null;
+        if (!cajaRepositorio.existsById(caja.getEnv())) {
+            return null;
+        }
+        return cajaRepositorio.save(caja);
     }
 
-    @Override
-    public Caja obtenerPorEnv(String env) {
-        return null;
-    }
-
-    @Override
-    public boolean existeCaja(String env) {
-        return false;
-    }
+    
 
     @Override
     public boolean eliminarPorEnv(String env) {
-        return false;
+        cajaRepositorio.deleteById(env);
+        return !cajaRepositorio.existsById(env);
     }
+
+    
 
 }
