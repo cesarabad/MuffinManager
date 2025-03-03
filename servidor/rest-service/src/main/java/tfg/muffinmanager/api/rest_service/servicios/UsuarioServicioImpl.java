@@ -18,7 +18,7 @@ public class UsuarioServicioImpl implements UsuarioServicio {
     @Override
     public ArrayList<UsuarioDTO> obtenerUsuarios() {
         ArrayList<UsuarioDTO> usuarios = new ArrayList<>();
-        usuarioRepositorio.findAll().forEach(usuario -> usuarios.add(new UsuarioDTO(usuario.getDni(), usuario.getNombre(), usuario.getApellidos(), usuario.getNombreUsuario(), usuario.getGruposPermisos(), usuario.getPermisos())));
+        usuarioRepositorio.findAll().forEach(usuario -> usuarios.add(new UsuarioDTO(usuario.getDni(), usuario.getNombre(), usuario.getApellidos(), usuario.getUsername(), usuario.getGruposPermisos(), usuario.getPermisos())));
         return usuarios;
     }
     @Override

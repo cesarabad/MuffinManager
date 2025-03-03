@@ -147,7 +147,7 @@
                     </StackPanel>
                 </StackPanel>
             </Grid>
-            <Image Source="/Recursos/Imagenes/logo.png" Grid.Column="1" Margin="15px,20px" HorizontalAlignment="Center"/>
+            <Image Source="/Recursos/Imagenes/logo.png" Grid.Column="1" Margin="15px,0px" VerticalAlignment="Top" HorizontalAlignment="Center"/>
 
         </Grid>
 

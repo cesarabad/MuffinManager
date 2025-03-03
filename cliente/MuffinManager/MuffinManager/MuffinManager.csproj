@@ -9,6 +9,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Recursos\Imagenes\MDLH_Logo.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Configuracion\" />
     <Folder Include="Utilidades\" />
     <Folder Include="VistaModelo\Stock\" />
