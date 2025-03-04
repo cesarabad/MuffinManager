@@ -40,7 +40,7 @@ public class ArticuloServicioImpl implements ArticuloServicio {
                                 ,Timestamp.valueOf(articuloDTO.getFechaCreacion())
                                 ,articuloDTO.getFechaFin() != null ? Timestamp.valueOf(articuloDTO.getFechaFin()) : null
                                 ,articuloDTO.isActivo()
-                                ,usuarioServicio.dtoToUsuario(usuarioServicio.obtenerPorDni(articuloDTO.getResponsable())))).toDto();
+                                ,usuarioServicio.obtenerEntidadPorDni(articuloDTO.getResponsable()))).toDto();
         
     }
 

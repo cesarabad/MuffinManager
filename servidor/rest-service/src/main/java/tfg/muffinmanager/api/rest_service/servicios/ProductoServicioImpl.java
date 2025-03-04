@@ -37,7 +37,7 @@ public class ProductoServicioImpl implements ProductoServicio{
         ,Timestamp.valueOf(producto.getFechaCreacion())
         ,producto.getFechaFin() != null ? Timestamp.valueOf(producto.getFechaFin()) : null
         ,producto.isActivo()
-        ,usuarioServicio.dtoToUsuario(usuarioServicio.obtenerPorDni(producto.getResponsable())))).toDto();
+        ,usuarioServicio.obtenerEntidadPorDni(producto.getResponsable()))).toDto();
     }
 
     @Override

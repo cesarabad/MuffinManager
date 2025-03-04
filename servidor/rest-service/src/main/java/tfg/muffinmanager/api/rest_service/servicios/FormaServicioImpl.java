@@ -27,7 +27,7 @@ public class FormaServicioImpl implements FormaServicio {
         ,formaDTO.getVersion()
         ,Timestamp.valueOf(formaDTO.getFechaCreacion())
         ,formaDTO.getFechaFin() != null ? Timestamp.valueOf(formaDTO.getFechaFin()) : null, formaDTO.isActivo(),
-        usuarioServicio.dtoToUsuario(usuarioServicio.obtenerPorDni(formaDTO.getResponsable())))).toDto();
+        usuarioServicio.obtenerEntidadPorDni(formaDTO.getResponsable()))).toDto();
         
     }
 

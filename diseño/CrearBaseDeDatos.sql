@@ -1,6 +1,5 @@
 CREATE DATABASE `MuffinManager`;
 USE `MuffinManager`;
-
 CREATE TABLE `Usuario` (
     `dni` CHAR(9) NOT NULL,
     `nombre` VARCHAR(80) NOT NULL,
@@ -15,6 +14,8 @@ CREATE TABLE `Grupo_Permisos` (
     PRIMARY KEY (`nombre`)
 );
 
+INSERT INTO `Grupo_Permisos` VALUES ('admin'), ('caja');
+
 CREATE TABLE `Usuario_Grupo` (
     `usuario` CHAR(9) NOT NULL,
     `grupo` VARCHAR(20) NOT NULL,
@@ -28,6 +29,8 @@ CREATE TABLE `Permiso` (
     PRIMARY KEY (`nombre`)
 );
 
+INSERT INTO `Permiso` VALUES ('ver_caja'),('crear_caja'), ('borrar_caja'), ('modificar_caja');
+
 CREATE TABLE `Permiso_Grupo` (
     `grupo` VARCHAR(20) NOT NULL,
     `permiso` VARCHAR(20) NOT NULL,
@@ -36,6 +39,11 @@ CREATE TABLE `Permiso_Grupo` (
     FOREIGN KEY (`grupo`) REFERENCES `grupo_permisos`(`nombre`) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
+INSERT INTO `Permiso_Grupo` VALUES ('admin', 'ver_caja'),  ('admin', 'crear_caja'), ('admin', 'borrar_caja'), ('admin', 'modificar_caja');
+
+INSERT INTO `Permiso_Grupo` VALUES ('caja', 'ver_caja'),  ('caja', 'crear_caja'), ('caja', 'borrar_caja'), ('caja', 'modificar_caja');
+
+
 CREATE TABLE `Permiso_Usuario` (
     `usuario` CHAR(9) NOT NULL,
     `permiso` VARCHAR(20) NOT NULL,
@@ -43,6 +51,7 @@ CREATE TABLE `Permiso_Usuario` (
     FOREIGN KEY (`permiso`) REFERENCES `permiso`(`nombre`) ON DELETE CASCADE ON UPDATE CASCADE,
     FOREIGN KEY (`usuario`) REFERENCES `usuario`(`dni`) ON DELETE CASCADE ON UPDATE CASCADE
 );
+
 
 CREATE TABLE `Forma` (
     `id` VARCHAR(10) NOT NULL,

@@ -9,9 +9,9 @@ public interface UsuarioServicio {
 
     public UsuarioDTO guardarUsuario(Usuario usuario);
     public ArrayList<UsuarioDTO> obtenerUsuarios();
-    public UsuarioDTO actualizarUsuario(Usuario usuario);
-    public UsuarioDTO obtenerPorDni(String dni);
+    public UsuarioDTO obtenerPorNombreUsuario(String nombreUsuario);
     public boolean existeUsuario(String dni);
-    public boolean eliminarPorDni(String dni);
-    public Usuario dtoToUsuario(UsuarioDTO usuarioDTO);
+    public UsuarioDTO obtenerPorAutenticacion(String token);
+    public UsuarioDTO obtenerPorDni(String dni);
+    public Usuario obtenerEntidadPorDni(String dni);
 }

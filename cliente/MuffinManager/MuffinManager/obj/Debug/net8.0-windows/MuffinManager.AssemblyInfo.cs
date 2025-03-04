@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MuffinManager")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ecba11d6f6f67d490daf0c58ce3a87acff6ea76c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4e7a4845e9b1b532cfcde40f2fcacc86b8ad7f7e")]
 [assembly: System.Reflection.AssemblyProductAttribute("MuffinManager")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MuffinManager")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

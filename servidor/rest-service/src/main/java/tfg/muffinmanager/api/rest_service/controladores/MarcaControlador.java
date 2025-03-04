@@ -9,8 +9,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import tfg.muffinmanager.api.rest_service.modelo.dto.MarcaDTO;
 import tfg.muffinmanager.api.rest_service.servicios.interfaces.MarcaServicio;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 
 
 @RestController
@@ -25,9 +23,6 @@ public class MarcaControlador {
         return marcaServicio.obtenerMarcas();
     }
 
-    @PostMapping()
-    public MarcaDTO guardarMarca(@RequestBody MarcaDTO marca) {
-        return marcaServicio.guardarMarca(marca);
-    }
+    
     
 }

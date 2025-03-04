@@ -8,12 +8,15 @@ import org.springframework.stereotype.Service;
 import tfg.muffinmanager.api.rest_service.modelo.dto.UsuarioDTO;
 import tfg.muffinmanager.api.rest_service.modelo.entidades.Usuario;
 import tfg.muffinmanager.api.rest_service.repositorios.UsuarioRepositorio;
+import tfg.muffinmanager.api.rest_service.servicios.interfaces.JwtServicio;
 import tfg.muffinmanager.api.rest_service.servicios.interfaces.UsuarioServicio;
 
 @Service
 public class UsuarioServicioImpl implements UsuarioServicio {
     @Autowired
     UsuarioRepositorio usuarioRepositorio;
+    @Autowired
+    JwtServicio jwtServicio;
 
     @Override
     public ArrayList<UsuarioDTO> obtenerUsuarios() {
@@ -30,36 +33,32 @@ public class UsuarioServicioImpl implements UsuarioServicio {
         usuarioRepositorio.save(usuario);
         return usuario.toDTO();
     }
-    @Override
-    public UsuarioDTO actualizarUsuario(Usuario usuario) {
-        if (!existeUsuario(usuario.getDni())) {
-            return null;
-        }
-        usuarioRepositorio.save(usuario);
-        return usuario.toDTO();
-    }
-    @Override
-    public Usuario dtoToUsuario(UsuarioDTO usuarioDTO) {
-        return usuarioRepositorio.findByDni(usuarioDTO.getDni());
-    }
-    @Override
-    public UsuarioDTO obtenerPorDni(String dni) {
-        return usuarioRepositorio.findByDni(dni).toDTO();
-    }
+    
 
     @Override
     public boolean existeUsuario(String dni) {
         return usuarioRepositorio.findByDni(dni) != null;
     }
 
+    
     @Override
-    public boolean eliminarPorDni(String dni) {
-        try {
-            usuarioRepositorio.delete(usuarioRepositorio.findByDni(dni));
-            return true;
-        } catch (Exception e) {
-            return false;
+    public UsuarioDTO obtenerPorAutenticacion(String token) {
+        if (jwtServicio.getUsernameFromToken(token) != null) {
+            return obtenerPorNombreUsuario(jwtServicio.getUsernameFromToken(token));
+        } else {
+            return null;
         }
-        
+    }
+    @Override
+    public UsuarioDTO obtenerPorNombreUsuario(String nombreUsuario) {
+        return usuarioRepositorio.findByNombreUsuario(nombreUsuario).orElse(null).toDTO();
+    }
+    @Override
+    public UsuarioDTO obtenerPorDni(String dni) {
+        return usuarioRepositorio.findByDni(dni).toDTO();
+    }
+    @Override
+    public Usuario obtenerEntidadPorDni(String dni) {
+        return usuarioRepositorio.findByDni(dni);
     }
 }

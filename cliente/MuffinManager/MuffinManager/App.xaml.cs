@@ -1,5 +1,8 @@
-﻿using MuffinManager.Vista;
+﻿using MuffinManager.Modelo;
+using MuffinManager.Servicios;
+using MuffinManager.Vista;
 using MuffinManager.Vista.Login;
+using MuffinManager.VistaModelo.Login;
 using System.Configuration;
 using System.Data;
 using System.Net.Http;
@@ -12,13 +15,19 @@ namespace MuffinManager
     /// </summary>
     public partial class App : Application
     {
+        private static Usuario? usuarioLogeado;
+        public static Usuario? UsuarioLogeado { get => usuarioLogeado; set => usuarioLogeado = value; }
+
         protected override async void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
             if (await EsTokenValido())
             {
+                LoginVistaModelo.LogearUsuario();
                 MenuProductoTerminadoVista menuProductoTerminadoVista = new MenuProductoTerminadoVista();
                 menuProductoTerminadoVista.Show();
+
+
             } else
             {
                 LoginVista loginVista = new LoginVista();

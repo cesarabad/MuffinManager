@@ -85,7 +85,7 @@ public class StockProductoServicioImpl implements StockProductoServicio {
 
         MovimientoStock movimiento = new MovimientoStock(movimientoStock.getNumero()
         ,stockProducto
-        ,usuarioServicio.dtoToUsuario(usuarioServicio.obtenerPorDni(movimientoStock.getResponsable()))
+        ,usuarioServicio.obtenerEntidadPorDni(movimientoStock.getResponsable())
         ,Timestamp.valueOf(movimientoStock.getFechaYHora()),movimientoStock.getUnidades(),movimientoStock.getObservaciones()); 
 
         return movimientoStockRepositorio.save(movimiento).toDto();
@@ -112,7 +112,7 @@ public class StockProductoServicioImpl implements StockProductoServicio {
 
         MovimientoStock movimiento = new EntradaStock(movimientoStock.getNumero()
         ,stockProducto
-        ,usuarioServicio.dtoToUsuario(usuarioServicio.obtenerPorDni(movimientoStock.getResponsable()))
+        ,usuarioServicio.obtenerEntidadPorDni(movimientoStock.getResponsable())
         ,Timestamp.valueOf(movimientoStock.getFechaYHora()),movimientoStock.getUnidades(),movimientoStock.getObservaciones()); 
 
         return movimientoStockRepositorio.save(movimiento).toDto();
@@ -128,7 +128,7 @@ public class StockProductoServicioImpl implements StockProductoServicio {
 
         MovimientoStock movimiento = new AjusteStock(movimientoStock.getNumero()
         ,stockProducto
-        ,usuarioServicio.dtoToUsuario(usuarioServicio.obtenerPorDni(movimientoStock.getResponsable()))
+        ,usuarioServicio.obtenerEntidadPorDni(movimientoStock.getResponsable())
         ,Timestamp.valueOf(movimientoStock.getFechaYHora()),movimientoStock.getUnidades(),movimientoStock.getObservaciones()); 
 
         return movimientoStockRepositorio.save(movimiento).toDto();
@@ -144,7 +144,7 @@ public class StockProductoServicioImpl implements StockProductoServicio {
 
         MovimientoStock movimiento = new SalidaStock(movimientoStock.getNumero()
         ,stockProducto
-        ,usuarioServicio.dtoToUsuario(usuarioServicio.obtenerPorDni(movimientoStock.getResponsable()))
+        ,usuarioServicio.obtenerEntidadPorDni(movimientoStock.getResponsable())
         ,Timestamp.valueOf(movimientoStock.getFechaYHora()),movimientoStock.getUnidades(),movimientoStock.getObservaciones(), movimientoStock.getDestino()); 
 
         return movimientoStockRepositorio.save(movimiento).toDto();
@@ -160,7 +160,7 @@ public class StockProductoServicioImpl implements StockProductoServicio {
 
         MovimientoStock movimiento = new ReservaStock(movimientoStock.getNumero()
         ,stockProducto
-        ,usuarioServicio.dtoToUsuario(usuarioServicio.obtenerPorDni(movimientoStock.getResponsable()))
+        ,usuarioServicio.obtenerEntidadPorDni(movimientoStock.getResponsable())
         ,Timestamp.valueOf(movimientoStock.getFechaYHora()),movimientoStock.getUnidades(),movimientoStock.getObservaciones(), movimientoStock.getDestino()); 
 
         return movimientoStockRepositorio.save(movimiento).toDto();

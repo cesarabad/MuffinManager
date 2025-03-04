@@ -11,12 +11,10 @@ import tfg.muffinmanager.api.rest_service.modelo.dto.UsuarioDTO;
 import tfg.muffinmanager.api.rest_service.modelo.entidades.Usuario;
 import tfg.muffinmanager.api.rest_service.servicios.UsuarioServicioImpl;
 
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.PutMapping;
 
 
 
@@ -60,18 +58,11 @@ public class UsuarioControlador {
         return usuarios;
     }
 
-    @PutMapping("editar")
-    public UsuarioDTO putMethodName(@RequestBody Usuario usuario) {
-        return usuarioServicio.actualizarUsuario(usuario);
+    
+    @GetMapping("/autenticacion")
+    public UsuarioDTO obtenerPorAutenticacion(@RequestParam String token) {
+        return usuarioServicio.obtenerPorAutenticacion(token);
     }
-
-    @DeleteMapping("/{dni}")
-    public String eliminarPorDni(@PathVariable("dni") String dni) {
-        if (usuarioServicio.eliminarPorDni(dni)) {
-            return "Usuario con dni \"" + dni +  "\" eliminado";
-        } else {
-            return "Error al eliminar el usuario con dni \"" + dni + "\"";
-        }
-    }
+    
     
 }

@@ -25,12 +25,14 @@ public class SeguridadConfiguracion {
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
+        
         return http
         .csrf(csrfd -> csrfd.disable())
         .authorizeHttpRequests(authRequest -> 
             authRequest
             .requestMatchers("/auth/login").permitAll()
             .requestMatchers("/auth/register").permitAll()
+            .requestMatchers("/caja").hasRole("ver_caja") 
             .anyRequest().authenticated()
         )
         .sessionManagement(sessionManagement -> 

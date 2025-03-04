@@ -35,12 +35,12 @@
             </Grid.ColumnDefinitions>
 
             <StackPanel Grid.Column="0" VerticalAlignment="Center">
-                <Button x:Name="articuloBtn" Content="ARTICULO" Command="{Binding ArticuloBtn}" Style="{StaticResource estiloBotones}"/>
-                <Button x:Name="marcaBtn" Content="MARCA" Style="{StaticResource estiloBotones}" Command="{Binding MarcaBtn}"/>
-                <Button x:Name="productoBtn" Content="PRODUCTO TERMINADO" Style="{StaticResource estiloBotones}" Command="{Binding ProductoBtn}"/>
-                <Button x:Name="formaBtn" Content="FORMA" Command="{Binding FormaBtn}" Style="{StaticResource estiloBotones}"/>
-                <Button x:Name="cajaBtn" Content="CAJA" Style="{StaticResource estiloBotones}" Command="{Binding CajaBtn}"/>
-                <Button x:Name="impresionPaquete" Content="IMPRESION PAQUETE" Style="{StaticResource estiloBotones}" Command="{Binding ImpresionPaqueteBtn}"/>
+                <Button x:Name="articuloBtn" Content="ARTICULO" Command="{Binding ArticuloBtn}" Style="{StaticResource estiloBotones}" IsEnabled="False"/>
+                <Button x:Name="marcaBtn" Content="MARCA" Style="{StaticResource estiloBotones}" Command="{Binding MarcaBtn}" IsEnabled="False"/>
+                <Button x:Name="productoBtn" Content="PRODUCTO TERMINADO" Style="{StaticResource estiloBotones}" Command="{Binding ProductoBtn}" IsEnabled="False"/>
+                <Button x:Name="formaBtn" Content="FORMA" Command="{Binding FormaBtn}" Style="{StaticResource estiloBotones}" IsEnabled="False"/>
+                <Button x:Name="cajaBtn" Content="CAJA" Style="{StaticResource estiloBotones}" Command="{Binding CajaBtn}" IsEnabled="False"/>
+                <Button x:Name="impresionPaquete" Content="IMPRESION PAQUETE" Style="{StaticResource estiloBotones}" Command="{Binding ImpresionPaqueteBtn}" IsEnabled="False"/>
             </StackPanel>
             <Image Source="/Recursos/Imagenes/logo.png" Grid.Column="1" Margin="20px"/>
         </Grid>

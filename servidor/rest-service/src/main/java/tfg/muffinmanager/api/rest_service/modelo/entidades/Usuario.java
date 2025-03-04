@@ -64,14 +64,14 @@ public class Usuario implements UserDetails {
     public UsuarioDTO toDTO() {
         return new UsuarioDTO(this.dni, this.nombre, this.apellidos, this.nombreUsuario , this.gruposPermisos, this.permisos);
     }
-
+    
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return Stream.concat(
-                    permisos.stream().map(permiso -> new SimpleGrantedAuthority(permiso.getNombre())), 
+                    permisos.stream().map(permiso -> new SimpleGrantedAuthority("ROLE_" + permiso.getNombre())), 
                     gruposPermisos.stream()
                                 .flatMap(grupo -> grupo.getPermisos().stream())
-                                .map(permiso -> new SimpleGrantedAuthority(permiso.getNombre()))
+                                .map(permiso -> new SimpleGrantedAuthority("ROLE_" + permiso.getNombre()))
             )
             .collect(Collectors.toSet()); // Usamos Set para evitar duplicados
     }

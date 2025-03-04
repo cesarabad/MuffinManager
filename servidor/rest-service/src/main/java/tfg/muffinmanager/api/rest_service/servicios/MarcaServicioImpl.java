@@ -1,6 +1,5 @@
 package tfg.muffinmanager.api.rest_service.servicios;
 
-import java.sql.Timestamp;
 import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,23 +19,9 @@ public class MarcaServicioImpl implements MarcaServicio{
     @Autowired
     UsuarioServicio usuarioServicio;
 
-    @Override
-    public MarcaDTO guardarMarca(MarcaDTO marcaDTO) {
-        return marcaRepositorio.save(dtoToMarca(marcaDTO)).toDTO();
-    }
+   
 
-    public Marca dtoToMarca(MarcaDTO marcaDTO) {
-        Marca marca = new Marca();
-        marca = new Marca(marcaDTO.getId(), 
-        marcaDTO.getNombre()
-        ,marcaDTO.getLogo()
-        ,marcaDTO.getVersion()
-        ,Timestamp.valueOf(marcaDTO.getFechaCreacion())
-        ,marcaDTO.getFechaFin() != null ? Timestamp.valueOf(marcaDTO.getFechaFin()) : null
-        ,marcaDTO.isActivo()
-        ,usuarioServicio.dtoToUsuario(marcaDTO.getResponsable()));
-        return marca;
-    }
+    
 
     @Override
     public ArrayList<MarcaDTO> obtenerMarcas() {

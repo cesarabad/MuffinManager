@@ -2,6 +2,8 @@
 using MuffinManager.Vista.Gestion.Elementos;
 using System.Windows.Input;
 using CommunityToolkit.Mvvm.Input;
+using MuffinManager.Modelo;
+using System.Windows;
 
 namespace MuffinManager.VistaModelo.Gestion
 {
@@ -35,6 +37,17 @@ namespace MuffinManager.VistaModelo.Gestion
             this.cajaBtn = new RelayCommand(abrirGestionCaja);
             this.impresionPaqueteBtn = new RelayCommand(abrirGestionImpresionPaquete);
             this.volverBtn = new RelayCommand(volver);
+            ComprobarPermisos();
+        }
+
+        private void ComprobarPermisos()
+        {
+            Usuario? usuarioLogeado = App.UsuarioLogeado;
+            if (usuarioLogeado != null)
+            {
+                ventana.cajaBtn.IsEnabled = usuarioLogeado.TienePermiso(Permiso.CAJA);
+            }
+            
         }
 
         private void volver()
