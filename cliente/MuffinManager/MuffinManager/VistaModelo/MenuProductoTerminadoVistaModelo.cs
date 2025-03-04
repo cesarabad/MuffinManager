@@ -9,6 +9,7 @@ using System.Windows;
 using System.Windows.Input;
 using CommunityToolkit.Mvvm.Input;
 using MuffinManager.Vista;
+using MuffinManager.VistaModelo.Login;
 
 namespace MuffinManager.VistaModelo
 {
@@ -18,7 +19,7 @@ namespace MuffinManager.VistaModelo
         private MenuProductoTerminadoVista ventana;
         private ICommand stockPTBtn;
         private ICommand gestionPTBtn;
-
+        private ICommand cerrarSesionBtn;
 
         public ICommand StockPTBtn
         {
@@ -35,12 +36,20 @@ namespace MuffinManager.VistaModelo
                 return gestionPTBtn;
             }
         }
+        public ICommand CerrarSesionBtn
+        {
+            get
+            {
+                return cerrarSesionBtn;
+            }
+        }
 
         public MenuProductoTerminadoVistaModelo(MenuProductoTerminadoVista ventana)
         {
             this.ventana = ventana;
             stockPTBtn = new RelayCommand(abrirStockPT);
             gestionPTBtn = new RelayCommand(abrirGestionPT);
+            cerrarSesionBtn = new RelayCommand(LoginVistaModelo.CerrarSesion);
         }
 
         private void abrirStockPT()

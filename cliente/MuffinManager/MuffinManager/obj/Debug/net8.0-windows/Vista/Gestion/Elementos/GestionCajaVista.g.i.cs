@@ -150,7 +150,7 @@ namespace MuffinManager.Vista.Gestion.Elementos {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/MuffinManager;V1.0.0.0;component/vista/gestion/elementos/gestioncajavista.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/MuffinManager;component/vista/gestion/elementos/gestioncajavista.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\..\..\Vista\Gestion\Elementos\GestionCajaVista.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

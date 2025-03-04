@@ -20,7 +20,20 @@
                 <RowDefinition Height="1*"/>
                 <RowDefinition Height="5*"/>
             </Grid.RowDefinitions>
-            <TextBlock x:Name="headerTitle" Grid.Row="0" Text="MENU PRODUCTO TERMINADO" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="30px"/>
+            <DockPanel Grid.Row="0">
+                <ToolBarTray DockPanel.Dock="Top"  Height="25px">
+                    <ToolBar>
+                        <Menu>
+                            <MenuItem Header="Archivo" FontSize="10px">
+                                <MenuItem Header="Cerrar Sesión" Command="{Binding CerrarSesionBtn}"/>
+                            </MenuItem>
+                        </Menu>
+                    </ToolBar>
+                </ToolBarTray>
+                
+                <TextBlock x:Name="headerTitle" Text="MENU PRODUCTO TERMINADO" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="30px"/>
+            </DockPanel>
+            
             <Grid x:Name="content" Grid.Row="1">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="3*"/>

@@ -52,3 +52,6 @@ D:\TFG MDLH\MuffinManager\cliente\MuffinManager\MuffinManager\bin\Debug\net8.0-w
 D:\TFG MDLH\MuffinManager\cliente\MuffinManager\MuffinManager\bin\Debug\net8.0-windows\System.Text.Json.dll
 D:\TFG MDLH\MuffinManager\cliente\MuffinManager\MuffinManager\bin\Debug\net8.0-windows\runtimes\browser\lib\net8.0\System.Text.Encodings.Web.dll
 D:\TFG MDLH\MuffinManager\cliente\MuffinManager\MuffinManager\bin\Debug\net8.0-windows\System.Net.Http.Json.dll
+D:\TFG MDLH\MuffinManager\cliente\MuffinManager\MuffinManager\obj\Debug\net8.0-windows\Vista\Login\LoginVista.g.cs
+D:\TFG MDLH\MuffinManager\cliente\MuffinManager\MuffinManager\obj\Debug\net8.0-windows\Vista\Login\LoginVista.baml
+D:\TFG MDLH\MuffinManager\cliente\MuffinManager\MuffinManager\bin\Debug\net8.0-windows\MuffinManager.dll.config

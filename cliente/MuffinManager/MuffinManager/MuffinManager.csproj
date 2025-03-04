@@ -10,6 +10,8 @@
 
   <ItemGroup>
     <None Remove="Recursos\Imagenes\MDLH_Logo.png" />
+    <None Remove="Recursos\Imagenes\password.png" />
+    <None Remove="Recursos\Imagenes\username.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -29,6 +31,8 @@
 
   <ItemGroup>
     <Resource Include="Recursos\Imagenes\logo.png" />
+    <Resource Include="Recursos\Imagenes\password.png" />
+    <Resource Include="Recursos\Imagenes\username.png" />
   </ItemGroup>
 
 </Project>

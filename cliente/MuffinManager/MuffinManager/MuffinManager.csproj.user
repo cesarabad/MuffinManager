@@ -28,6 +28,9 @@
     <Compile Update="Vista\Gestion\GestionProductoTerminadoVista.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Vista\Login\LoginVista.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Vista\MenuProductoTerminadoVista.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -55,6 +58,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Vista\Gestion\GestionProductoTerminadoVista.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Vista\Login\LoginVista.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Vista\MenuProductoTerminadoVista.xaml">
