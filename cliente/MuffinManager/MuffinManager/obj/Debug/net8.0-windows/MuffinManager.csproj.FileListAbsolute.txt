@@ -55,3 +55,5 @@ D:\TFG MDLH\MuffinManager\cliente\MuffinManager\MuffinManager\bin\Debug\net8.0-w
 D:\TFG MDLH\MuffinManager\cliente\MuffinManager\MuffinManager\obj\Debug\net8.0-windows\Vista\Login\LoginVista.g.cs
 D:\TFG MDLH\MuffinManager\cliente\MuffinManager\MuffinManager\obj\Debug\net8.0-windows\Vista\Login\LoginVista.baml
 D:\TFG MDLH\MuffinManager\cliente\MuffinManager\MuffinManager\bin\Debug\net8.0-windows\MuffinManager.dll.config
+D:\TFG MDLH\MuffinManager\cliente\MuffinManager\MuffinManager\obj\Debug\net8.0-windows\Vista\Gestion\Elementos\Versiones\VersionesFormaVista.g.cs
+D:\TFG MDLH\MuffinManager\cliente\MuffinManager\MuffinManager\obj\Debug\net8.0-windows\Vista\Gestion\Elementos\Versiones\VersionesFormaVista.baml

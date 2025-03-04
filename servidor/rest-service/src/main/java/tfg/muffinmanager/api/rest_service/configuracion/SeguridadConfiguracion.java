@@ -32,7 +32,8 @@ public class SeguridadConfiguracion {
             authRequest
             .requestMatchers("/auth/login").permitAll()
             .requestMatchers("/auth/register").permitAll()
-            .requestMatchers("/caja").hasRole("ver_caja") 
+            .requestMatchers("/caja/**").hasRole("ver_caja")
+            .requestMatchers("/forma/**").hasRole("ver_forma")
             .anyRequest().authenticated()
         )
         .sessionManagement(sessionManagement -> 

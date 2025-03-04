@@ -46,6 +46,7 @@ namespace MuffinManager.VistaModelo.Gestion
             if (usuarioLogeado != null)
             {
                 ventana.cajaBtn.IsEnabled = usuarioLogeado.TienePermiso(Permiso.CAJA);
+                ventana.formaBtn.IsEnabled = usuarioLogeado.TienePermiso(Permiso.FORMA);
             }
             
         }
@@ -77,7 +78,7 @@ namespace MuffinManager.VistaModelo.Gestion
 
         private void abrirGestionForma()
         {
-            GestionFormaVista gestionForma = new GestionFormaVista();
+            GestionFormaVista gestionForma = new GestionFormaVista(ventana);
             gestionForma.Show();
         }
 

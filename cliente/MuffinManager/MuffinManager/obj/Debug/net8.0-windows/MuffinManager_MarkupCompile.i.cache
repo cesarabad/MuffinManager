@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
 D:\TFG MDLH\MuffinManager\cliente\MuffinManager\MuffinManager\App.xaml
-101175061167
+11-2046448621
 
-241858138290
+28-1767528874
 209923742261
-Vista\Gestion\Elementos\GestionArticuloVista.xaml;Vista\Gestion\Elementos\GestionCajaVista.xaml;Vista\Gestion\Elementos\GestionFormaVista.xaml;Vista\Gestion\Elementos\GestionImpresionPaqueteVista.xaml;Vista\Gestion\Elementos\GestionMarcaVista.xaml;Vista\Gestion\Elementos\GestionProductoVista.xaml;Vista\Gestion\GestionProductoTerminadoVista.xaml;Vista\Login\LoginVista.xaml;Vista\MenuProductoTerminadoVista.xaml;Vista\Stock\StockProductoTerminadoVista.xaml;
+Vista\Gestion\Elementos\GestionArticuloVista.xaml;Vista\Gestion\Elementos\GestionCajaVista.xaml;Vista\Gestion\Elementos\GestionFormaVista.xaml;Vista\Gestion\Elementos\GestionImpresionPaqueteVista.xaml;Vista\Gestion\Elementos\GestionMarcaVista.xaml;Vista\Gestion\Elementos\GestionProductoVista.xaml;Vista\Gestion\Elementos\Versiones\VersionesFormaVista.xaml;Vista\Gestion\GestionProductoTerminadoVista.xaml;Vista\Login\LoginVista.xaml;Vista\MenuProductoTerminadoVista.xaml;Vista\Stock\StockProductoTerminadoVista.xaml;
 
 False
 

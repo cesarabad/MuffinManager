@@ -14,7 +14,7 @@ CREATE TABLE `Grupo_Permisos` (
     PRIMARY KEY (`nombre`)
 );
 
-INSERT INTO `Grupo_Permisos` VALUES ('admin'), ('caja');
+INSERT INTO `Grupo_Permisos` VALUES ('admin'), ('caja'), ('forma');
 
 CREATE TABLE `Usuario_Grupo` (
     `usuario` CHAR(9) NOT NULL,
@@ -29,7 +29,8 @@ CREATE TABLE `Permiso` (
     PRIMARY KEY (`nombre`)
 );
 
-INSERT INTO `Permiso` VALUES ('ver_caja'),('crear_caja'), ('borrar_caja'), ('modificar_caja');
+INSERT INTO `Permiso` VALUES ('ver_caja'),('crear_caja'), ('borrar_caja'), ('modificar_caja'),
+							 ('ver_forma'),('crear_forma'), ('borrar_forma'), ('modificar_forma'),('cv_forma');
 
 CREATE TABLE `Permiso_Grupo` (
     `grupo` VARCHAR(20) NOT NULL,
@@ -39,9 +40,11 @@ CREATE TABLE `Permiso_Grupo` (
     FOREIGN KEY (`grupo`) REFERENCES `grupo_permisos`(`nombre`) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
-INSERT INTO `Permiso_Grupo` VALUES ('admin', 'ver_caja'),  ('admin', 'crear_caja'), ('admin', 'borrar_caja'), ('admin', 'modificar_caja');
+INSERT INTO `Permiso_Grupo` VALUES ('admin', 'ver_caja'),  ('admin', 'crear_caja'), ('admin', 'borrar_caja'), ('admin', 'modificar_caja'),
+								   ('admin', 'ver_forma'),  ('admin', 'crear_forma'), ('admin', 'borrar_forma'), ('admin', 'modificar_forma'), ('admin', 'control_versiones_forma');
 
-INSERT INTO `Permiso_Grupo` VALUES ('caja', 'ver_caja'),  ('caja', 'crear_caja'), ('caja', 'borrar_caja'), ('caja', 'modificar_caja');
+INSERT INTO `Permiso_Grupo` VALUES ('caja', 'ver_caja'),  ('caja', 'crear_caja'), ('caja', 'borrar_caja'), ('caja', 'modificar_caja'),
+								   ('forma', 'ver_forma'),  ('forma', 'crear_forma'), ('forma', 'borrar_forma'), ('forma', 'modificar_forma'), ('forma', 'cv_forma');
 
 
 CREATE TABLE `Permiso_Usuario` (

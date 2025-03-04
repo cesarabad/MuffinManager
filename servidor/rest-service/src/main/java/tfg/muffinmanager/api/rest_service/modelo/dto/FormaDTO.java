@@ -10,13 +10,13 @@ public class FormaDTO {
     private LocalDateTime fechaCreacion;
     private LocalDateTime fechaFin;
     private boolean activo;
-    private String responsable;
+    private UsuarioDTO responsable;
 
     public FormaDTO() {
     }
 
     public FormaDTO(String id, String descripcion, int version, LocalDateTime fechaCreacion, LocalDateTime fechaFin,
-            boolean activo, String responsable) {
+            boolean activo, UsuarioDTO responsable) {
         this.id = id;
         this.descripcion = descripcion;
         this.version = version;
@@ -24,6 +24,19 @@ public class FormaDTO {
         this.fechaFin = fechaFin;
         this.activo = activo;
         this.responsable = responsable;
+    }
+
+    @Override
+    public String toString() {
+        return "FormaDTO{" +
+                "id='" + id + '\'' +
+                ", descripcion='" + descripcion + '\'' +
+                ", version=" + version +
+                ", fechaCreacion=" + fechaCreacion +
+                ", fechaFin=" + fechaFin +
+                ", activo=" + activo +
+                ", responsable=" + responsable +
+                '}';
     }
 
     public String getId() {
@@ -74,11 +87,11 @@ public class FormaDTO {
         this.activo = activo;
     }
 
-    public String getResponsable() {
+    public UsuarioDTO getResponsable() {
         return responsable;
     }
 
-    public void setResponsable(String responsable) {
+    public void setResponsable(UsuarioDTO responsable) {
         this.responsable = responsable;
     }
 }

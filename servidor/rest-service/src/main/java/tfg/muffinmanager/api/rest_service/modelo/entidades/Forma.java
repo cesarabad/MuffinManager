@@ -48,7 +48,7 @@ public class Forma {
     }
 
     public FormaDTO toDto() {
-        return new FormaDTO(idForma, descripcion, version, fechaCreacion.toLocalDateTime(),fechaFin != null ? fechaFin.toLocalDateTime() : null, activo, responsable.getDni());
+        return new FormaDTO(idForma, descripcion, version, fechaCreacion.toLocalDateTime(),fechaFin != null ? fechaFin.toLocalDateTime() : null, activo, responsable.toDTO());
     }
 
     public String getIdForma() {

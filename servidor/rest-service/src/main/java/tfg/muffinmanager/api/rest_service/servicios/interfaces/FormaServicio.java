@@ -4,11 +4,14 @@ import java.util.ArrayList;
 
 
 import tfg.muffinmanager.api.rest_service.modelo.dto.FormaDTO;
-import tfg.muffinmanager.api.rest_service.modelo.entidades.Forma;
 
 
 public interface FormaServicio {
     public FormaDTO guardarForma(FormaDTO formaDTO);
-    public ArrayList<FormaDTO> obtenerFormas();
-    public Forma obtenerPorId(String id);
+    public ArrayList<FormaDTO> obtenerFormasActivas();
+    public ArrayList<FormaDTO> obtenerVersionesPorId(String id);
+    public FormaDTO actualizarForma(FormaDTO formaDTO);
+    public boolean existeForma(String id);
+    public boolean eliminarForma(String id);
+    public boolean activarDesactivarForma(String id, int version);
 }

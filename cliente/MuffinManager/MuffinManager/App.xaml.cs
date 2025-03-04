@@ -34,7 +34,7 @@ namespace MuffinManager
                 loginVista.Show();
             }
         }
-
+       
         private async Task<bool> EsTokenValido()
         {
             String? token = ConfigurationManager.AppSettings["token"];

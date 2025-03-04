@@ -5,8 +5,143 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MuffinManager.Vista.Gestion.Elementos"
         mc:Ignorable="d"
-        Title="GestionFormaVista" Height="450" Width="800">
+        Title="GestionFormaVista" Height="500" Width="1100"
+        Background="IndianRed"
+        Loaded="Window_Loaded">
+    <Window.Resources>
+        <Style x:Key="estiloHeader" TargetType="TextBlock">
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontSize" Value="15px"/>
+        </Style>
+        <Style x:Key="estiloBotones" TargetType="Button">
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontSize" Value="15px"/>
+            <Setter Property="Padding" Value="0px, 10px"/>
+            <Setter Property="Margin" Value="20px,5px"/>
+            <Setter Property="Background" Value="WhiteSmoke"/>
+            <Setter Property="BorderThickness" Value="1.5"/>
+            <Setter Property="BorderBrush" Value="Black"/>
+        </Style>
+        <Style x:Key="estiloBody" TargetType="TextBlock">
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="FontSize" Value="16px"/>
+        </Style>
+        <Style x:Key="inputHeader" TargetType="TextBlock">
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontSize" Value="25px"/>
+        </Style>
+        <Style x:Key="inputBox" TargetType="TextBox">
+            <Setter Property="Background" Value="AntiqueWhite"/>
+            <Setter Property="BorderBrush" Value="Black"/>
+            <Setter Property="BorderThickness" Value="1.5px"/>
+            <Setter Property="FontSize" Value="17px"/>
+        </Style>
+    </Window.Resources>
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="2*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="5*"/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="volverBtn" Grid.Column="0" Content="Volver" Command="{Binding VolverBtn}" Margin="10px" Padding="0px" FontSize="15px" Style="{StaticResource estiloBotones}" TabIndex="8"/>
+            <TextBlock x:Name="header" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,200px,0" FontWeight="Bold" FontSize="29px" Text="FORMAS"/>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="13*"/>
+                <ColumnDefinition Width="6*"/>
+            </Grid.ColumnDefinitions>
+
+            <ListView x:Name="formasLista" SelectedItem="{Binding FormaSeleccionada}" Background="AntiqueWhite" ItemsSource="{Binding Formas}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Column="0" Margin="20px" BorderBrush="Black" BorderThickness="2">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Width="60px">
+                            <GridViewColumn.Header>
+                                <TextBlock Text="ID" Style="{StaticResource estiloHeader}"/>
+                            </GridViewColumn.Header>
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Id}" FontSize="20px" Style="{StaticResource estiloBody}"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Width="270px">
+                            <GridViewColumn.Header>
+                                <TextBlock Text="DESCRIPCION" Style="{StaticResource estiloHeader}"/>
+                            </GridViewColumn.Header>
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Descripcion}" Style="{StaticResource estiloBody}" TextTrimming="CharacterEllipsis"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Width="70px">
+                            <GridViewColumn.Header>
+                                <TextBlock Text="Version" Style="{StaticResource estiloHeader}"/>
+                            </GridViewColumn.Header>
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Version}" Style="{StaticResource estiloBody}"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+
+                        <GridViewColumn Width="180px">
+                            <GridViewColumn.Header>
+                                <TextBlock Text="Ultima mod." Style="{StaticResource estiloHeader}"/>
+                            </GridViewColumn.Header>
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding FechaCreacion}" Style="{StaticResource estiloBody}"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Width="100px">
+                            <GridViewColumn.Header>
+                                <TextBlock Text="Responsable" Style="{StaticResource estiloHeader}"/>
+                            </GridViewColumn.Header>
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Responsable.Nombre}" Style="{StaticResource estiloBody}"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+            <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                <Button x:Name="consultarVersiones" Content="VERSIONES ANTERIORES" Command="{Binding VersionesBtn}" Style="{StaticResource estiloBotones}" TabIndex="2"/>
+                <Button x:Name="agregarBtn" Content="AGREGAR" Command="{Binding AgregarBtn}" Style="{StaticResource estiloBotones}" TabIndex="3"/>
+                <Button x:Name="modificarBtn" Content="MODIFICAR" Style="{StaticResource estiloBotones}" Command="{Binding ModificarBtn}" TabIndex="4"/>
+                <Button x:Name="eliminarBtn" Content="ELIMINAR" Style="{StaticResource estiloBotones}" Command="{Binding EliminarBtn}" TabIndex="5"/>
+                <TextBlock x:Name="accionRealizada" FontSize="20px" FontWeight="Bold" HorizontalAlignment="Center" Margin="10,10,10,0px" Visibility="Hidden"/>
+            </StackPanel>
+        </Grid>
+
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <StackPanel Orientation="Horizontal" Margin="15px,10px">
+                        <TextBlock Text="ID: " VerticalAlignment="Center" Margin="5px" Style="{StaticResource inputHeader}"/>
+                        <TextBox x:Name="idInput" Text="{Binding IdInput}" Width="85px" Height="30px" TextAlignment="Center" VerticalAlignment="Center" Margin="5px" Style="{StaticResource inputBox}" TabIndex="0"/>
+                        <TextBlock Text="DESCRIPCION: " VerticalAlignment="Center" Margin="5px" Style="{StaticResource inputHeader}"/>
+                        <TextBox x:Name="descripcionInput" Text="{Binding DescripcionInput}" Width="220px" Height="30px" VerticalAlignment="Center" Margin="5px" Style="{StaticResource inputBox}" TabIndex="1"/>
+
+                    </StackPanel>
+                    
+            </Grid>
+            <Image Source="/Recursos/Imagenes/logo.png" Grid.Column="1" Margin="15px,0px" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+
+        </Grid>
+
     </Grid>
 </Window>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MuffinManager.VistaModelo.Gestion.Elementos;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +20,17 @@ namespace MuffinManager.Vista.Gestion.Elementos
     /// </summary>
     public partial class GestionFormaVista : Window
     {
-        public GestionFormaVista()
+        private GestionFormaVistaModelo vistaModelo;
+        public GestionFormaVista(GestionProductoTerminadoVista ventanaAnterior)
         {
             InitializeComponent();
+            this.vistaModelo = new GestionFormaVistaModelo(this, ventanaAnterior);
+            this.DataContext = vistaModelo;
+        }
+
+        private async void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            await vistaModelo.CargarDatosAsync();
         }
     }
 }
